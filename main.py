@@ -567,4 +567,5 @@ def main(page: ft.Page):
     page.add(header, ft.Divider(height=1), main_tabs)
     recargar_interfaz()
 
+
 ft.app(target=main)
