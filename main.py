@@ -551,8 +551,7 @@ Ofuscar (coste: 3d6). El objetivo deberá superar una tirada de salvación de De
 **NIVEL 15: MENTE ESCURRIDIZA**
 Tu mente astuta es excepcionalmente difícil de controlar. Ganas competencia en las tiradas de salvación de Sabiduría y Carisma. 
 
-**NIVEL 18: ELUSIVO** 
-Eres tan escurridizo que será raro que un atacante pueda golpearte con facilidad. Ninguna tirada de ataque contra ti tendrá ventaja a menos que tengas el estado de incapacitado. 
+**NIVEL 18: ELUSIVO** Eres tan escurridizo que será raro que un atacante pueda golpearte con facilidad. Ninguna tirada de ataque contra ti tendrá ventaja a menos que tengas el estado de incapacitado. 
 
 **NIVEL 19: Don ÉPICO**
 Obtienes una dote de don épico (consulta el capítulo 5) u otra dote de tu elección para la que cumplas las condiciones. Se recomienda Don del espíritu de la noche. 
@@ -625,8 +624,7 @@ Eliges un Patrón de Otro Mundo (Archifey, Celestial, Infernal, Gran Antiguo).
 **NIVEL 3: PACTO DEL BOON**
 Eliges un don de tu patrón (Pacto de la Hoja, Pacto de la Cadena, Pacto del Tomo).
 
-**NIVEL 4: MEJORA DE CARACTERÍSTICA** 
-Obtienes la dote Mejora de característica (consulta el capítulo 5) u otra dote de tu elección para la que cumplas las condiciones. Vuelves a obtener este rasgo en los niveles 8, 12 y 16 de brujo. 
+**NIVEL 4: MEJORA DE CARACTERÍSTICA** Obtienes la dote Mejora de característica (consulta el capítulo 5) u otra dote de tu elección para la que cumplas las condiciones. Vuelves a obtener este rasgo en los niveles 8, 12 y 16 de brujo. 
 
 **NIVEL 9: CONTACTAR PATRÓN 
 Antes solías ponerte en contacto con tu patrón a través de intermediarios. Ahora puedes comunicarte directamente, ya que siempre tienes el conjuro contactar con otro plano preparado. Con este rasgo, puedes lanzar el conjuro sin gastar un espacio de conjuro para contactar con tu patrón y superas automáticamente la tirada de salvación del conjuro. 
@@ -1197,17 +1195,17 @@ def main(page: ft.Page):
         content=ft.Row([ft.Icon("person"), dd_personajes, ft.IconButton("add", on_click=nuevo_pj)], alignment="center")
     )
 
-# --- PESTAÑA 1: GENERAL (CORREGIDA) ---
-    # Ajuste: Usamos padding solo horizontal para evitar crash por altura en móviles
+    # --- PESTAÑA 1: GENERAL (CORREGIDA) ---
+    # Usamos padding horizontal para evitar el crash por altura en móviles
     padding_compact = ft.padding.symmetric(horizontal=10)
-    
+
     dd_raza = ft.Dropdown(
         label="Raza",
         options=[ft.dropdown.Option(x) for x in LISTA_RAZAS],
         expand=True,
         height=40,
         text_size=12,
-        content_padding=padding_compact, # Corrección aquí
+        content_padding=padding_compact,
         dense=True,
         on_change=lambda e: update_gen("raza", e.control.value)
     )
@@ -1218,7 +1216,7 @@ def main(page: ft.Page):
         expand=True, 
         height=40, 
         text_size=12, 
-        content_padding=padding_compact, # Corrección aquí
+        content_padding=padding_compact, 
         on_change=lambda e: update_gen("custom_raza", e.control.value)
     )
 
@@ -1228,7 +1226,7 @@ def main(page: ft.Page):
         expand=True,
         height=40,
         text_size=12,
-        content_padding=padding_compact, # Corrección aquí
+        content_padding=padding_compact,
         dense=True,
         on_change=lambda e: update_gen("clase", e.control.value)
     )
@@ -1238,11 +1236,10 @@ def main(page: ft.Page):
         width=60, 
         height=40, 
         text_size=12,
-        content_padding=padding_compact, # Corrección aquí
+        content_padding=padding_compact, 
         on_change=lambda e: update_gen("nivel", e.control.value)
     )
-    
-    # El resto de elementos de esta pestaña
+
     txt_clase_c = ft.TextField(label="Otra Clase", visible=False, expand=True, height=40, content_padding=padding_compact, text_size=12, on_change=lambda e: update_gen("custom_clase", e.control.value))
     txt_hit_dice = ft.Text("?", size=20, weight="bold", color="yellow")
 
@@ -1313,7 +1310,6 @@ def main(page: ft.Page):
             ])))
         page.update()
 
-# Asegúrate de que tab_general tenga expand=True en el ListView
     tab_general = ft.Container(
         content=ft.ListView([
             ft.Text("Datos", weight="bold"), 
@@ -1329,7 +1325,7 @@ def main(page: ft.Page):
         expand=True
     )
 
-    # --- PESTAÑA: INFO DE CLASE (CORREGIDO SCROLL) ---
+    # --- PESTAÑA 2: INFO DE CLASE (CORREGIDA) ---
     dd_info_clase = ft.Dropdown(options=[ft.dropdown.Option(c) for c in LISTA_CLASES if c != "OTRA (Manual)"], label="Ver Info Clase", expand=True)
     md_clase_info = ft.Markdown(value="Selecciona arriba.", selectable=True)
     
@@ -1338,21 +1334,13 @@ def main(page: ft.Page):
         page.update()
     dd_info_clase.on_change = change_info_clase
 
-# --- CAMBIO 1: ÁREA DE TEXTO EXPANDIBLE ---
-# --- PESTAÑA 2: INFO CLASE (CORREGIDA) ---
     tab_clase_info = ft.Container(
         padding=10,
         content=ft.Column([
             dd_info_clase, 
             ft.Divider(),
-            # Contenedor para el texto markdown
             ft.Container(
-                # Envolvemos el Markdown en un Column scrollable
-                content=ft.Column(
-                    [md_clase_info], 
-                    scroll=ft.ScrollMode.AUTO, 
-                    expand=True
-                ),
+                content=ft.Column([md_clase_info], scroll=ft.ScrollMode.AUTO, expand=True),
                 expand=True, 
                 border_radius=5,
                 padding=5,
@@ -1403,22 +1391,25 @@ def main(page: ft.Page):
     def del_weapon(w):
         char_data["armas"].remove(w); guardar(); render_armas()
 
-    tab_combate = ft.ListView([
-        ft.Row([ui_ac, ft.Column([
-            ft.Text("Puntos de Golpe"),
-            ft.Row([ft.IconButton("remove", on_click=lambda e: mod_hp(-1)), txt_hp, ft.IconButton("add", on_click=lambda e: mod_hp(1))]),
-            ft.Row([ft.Text("Max:"), txt_hp_max]),
+    tab_combate = ft.Container(
+        content=ft.ListView([
+            ft.Row([ui_ac, ft.Column([
+                ft.Text("Puntos de Golpe"),
+                ft.Row([ft.IconButton("remove", on_click=lambda e: mod_hp(-1)), txt_hp, ft.IconButton("add", on_click=lambda e: mod_hp(1))]),
+                ft.Row([ft.Text("Max:"), txt_hp_max]),
+                ft.Divider(),
+                ft.Text("HP Temporal", color="cyan"),
+                ft.Row([ft.IconButton("remove", on_click=lambda e: mod_hp(-1, True)), txt_hp_temp, ft.IconButton("add", on_click=lambda e: mod_hp(1, True))]),
+                ft.Row([ft.Text("Max:"), txt_hp_temp_max]),
+            ])], alignment="spaceEvenly"),
             ft.Divider(),
-            ft.Text("HP Temporal", color="cyan"),
-            ft.Row([ft.IconButton("remove", on_click=lambda e: mod_hp(-1, True)), txt_hp_temp, ft.IconButton("add", on_click=lambda e: mod_hp(1, True))]),
-            ft.Row([ft.Text("Max:"), txt_hp_temp_max]),
-        ])], alignment="spaceEvenly"),
-        ft.Divider(),
-        ft.Text("Armas", weight="bold"),
-        ft.Row([txt_w_name, txt_w_cant, dd_w_dice]),
-        ft.ElevatedButton("Agregar Arma", on_click=add_weapon, width=400),
-        col_armas
-    ], padding=10, expand=True)
+            ft.Text("Armas", weight="bold"),
+            ft.Row([txt_w_name, txt_w_cant, dd_w_dice]),
+            ft.ElevatedButton("Agregar Arma", on_click=add_weapon, width=400),
+            col_armas
+        ], padding=10, expand=True),
+        expand=True
+    )
 
     # --- PESTAÑA 4: MAGIA ---
     col_spells = ft.Column()
@@ -1465,10 +1456,13 @@ def main(page: ft.Page):
             col_spells.controls.append(crear_fila_recurso(f"Nv {n}", char_data["spells_config"].get(k, 0), on_max, char_data["spells_used"][k], on_click))
         page.update()
 
-    tab_magia = ft.ListView([
-        ft.Text("Recursos de Clase / Extras", weight="bold", color="cyan"), col_extras,
-        ft.Divider(), ft.Text("Slots de Conjuro", weight="bold"), col_spells
-    ], padding=10, expand=True)
+    tab_magia = ft.Container(
+        content=ft.ListView([
+            ft.Text("Recursos de Clase / Extras", weight="bold", color="cyan"), col_extras,
+            ft.Divider(), ft.Text("Slots de Conjuro", weight="bold"), col_spells
+        ], padding=10, expand=True),
+        expand=True
+    )
 
     # --- PESTAÑA 5: MOCHILA ---
     txt_gold = ft.Text("0", size=30, weight="bold", color="yellow")
@@ -1558,8 +1552,8 @@ def main(page: ft.Page):
         ft.Tab(text="Mochila", icon="backpack", content=container_mochila),
     ], expand=True)
 
-# --- ESTRUCTURA PRINCIPAL SEGURA (CORRECCIÓN 4) ---
-    # Creamos el layout primero para asegurar que se expanda bien antes de pintarlo
+    # --- ESTRUCTURA PRINCIPAL SEGURA ---
+    # Corrección final para evitar pantalla negra en móviles
     layout_principal = ft.Column(
         controls=[
             header, 
@@ -1570,15 +1564,7 @@ def main(page: ft.Page):
         spacing=0
     )
 
-    # Agregamos el SafeArea envolviendo el layout
     page.add(ft.SafeArea(layout_principal, expand=True))
-    
-    # Cargamos los datos iniciales
     recargar_interfaz()
 
-# Fuera de la función main (esta línea no se toca, pero debe quedar al final)
 ft.app(target=main)
-
-
-
-
