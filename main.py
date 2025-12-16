@@ -13,265 +13,394 @@ DADOS_GOLPE = {
 
 # --- INFORMACIÓN TEXTUAL DE CLASES ---
 DATA_CLASES_INFO = {
-    "Bárbaro": """# BÁRBARO
-**Dado de Golpe:** 1d12 por nivel.
-**Competencias:** Armaduras ligeras, medias, escudos. Armas sencillas, marciales.
+   "Bárbaro": """# BÁRBARO
+**Dado de Golpe:** 1d12 por nivel de bárbaro.
+**Competencias:** Armaduras ligeras, medias y escudos. Armas sencillas y marciales.
 **Salvaciones:** Fuerza, Constitución.
+**Habilidades:** Elige dos: Atletismo, Intimidación, Naturaleza, Percepción, Supervivencia o Trato con animales.
 
-## RASGOS
-**NIVEL 1: FURIA**
-Ventaja en pruebas de FUE. Resistencia daño contundente/perforante/cortante. +2 Daño. (No conjuros).
-
+## RASGOS DE CLASE
 **NIVEL 1: DEFENSA SIN ARMADURA**
-CA = 10 + Des + Con (si no llevas armadura).
+Mientras no lleves armadura alguna, tu clase de armadura base será igual a 10 más tus modificadores por Destreza y Constitución. Obtienes este beneficio aunque lleves un escudo.
+
+**NIVEL 1: FURIA**
+Puedes imbuirte de un poder primigenio llamado furia. Puedes dejarte llevar por ella como acción adicional si no llevas puesta una armadura pesada.
+* **Resistencia al daño:** Tienes resistencia al daño contundente, cortante y perforante.
+* **Daño por furia:** Cuando llevas a cabo un ataque que use la Fuerza, obtienes un bonificador al daño (+2 a nivel 1).
+* **Ventaja en Fuerza:** Tienes ventaja en las pruebas de Fuerza y en las tiradas de salvación de Fuerza.
+* **Sin concentración ni conjuros:** No puedes mantener la concentración ni lanzar conjuros.
+
+**NIVEL 1: MAESTRÍA CON ARMAS**
+Tu entrenamiento con armas te permite utilizar las propiedades de maestría con dos tipos de armas cuerpo a cuerpo sencillas o marciales de tu elección.
 
 **NIVEL 2: ATAQUE TEMERARIO**
-Ventaja en tu ataque de FUE, pero enemigos tienen ventaja contra ti.
+Puedes dejar de lado toda preocupación por tu defensa para atacar con una desesperación feroz. Cuando haces tu primera tirada de ataque en tu turno, puedes decidir atacar temerariamente. Tienes ventaja en las tiradas de ataque de armas cuerpo a cuerpo que usen Fuerza durante este turno, pero las tiradas de ataque contra ti tienen ventaja hasta el inicio de tu siguiente turno.
 
 **NIVEL 2: SENTIR EL PELIGRO**
-Ventaja en salvaciones de DES contra lo que veas.
+Tienes una asombrosa sensación de cuándo las cosas no van como deberían, lo que te otorga ventaja en las tiradas de salvación de Destreza, a menos que tengas el estado de cegado o ensordecido.
 
-**NIVEL 3: SUBCLASE (SENDA)**
-Eliges tu camino (Berserker, Totémico, etc).
+**NIVEL 3: CONOCIMIENTO PRIMIGENIO**
+Ganas competencia en otra habilidad de la lista de habilidades de bárbaro. Además, mientras estés en furia, puedes usar tu Fuerza en lugar de cualquier otra característica para las pruebas de Acrobacias, Intimidación, Percepción, Sigilo o Supervivencia.
 
-**NIVEL 5: ATAQUE EXTRA**
-Atacas dos veces por acción.
+**NIVEL 3: SUBCLASE DE BÁRBARO**
+Consigues una subclase de bárbaro de tu elección (Senda del Árbol del Mundo, Berserker, Corazón Salvaje, Fanático).
+
+**NIVEL 5: ATAQUE ADICIONAL**
+Puedes atacar dos veces, en lugar de una, siempre que realices la acción de Atacar en tu turno.
 
 **NIVEL 5: MOVIMIENTO RÁPIDO**
-+3m velocidad (sin armadura pesada).
+Tu velocidad aumenta en 3 m mientras no lleves armadura pesada.
+
+**NIVEL 7: INSTINTO SALVAJE**
+Tu instinto es tan agudo que tienes ventaja en las tiradas de iniciativa. Además, si te sorprenden al comienzo del combate y no tienes el estado de incapacitado, puedes actuar normalmente en tu primer turno, pero solo si entras en furia antes de hacer cualquier otra cosa.
+
+**NIVEL 9: GOLPE BRUTAL**
+Puedes prescindir de la ventaja de tu Ataque temerario para golpear con más fuerza. Si usas Ataque temerario, puedes renunciar a la ventaja en una tirada de ataque para infligir 1d10 de daño adicional si aciertas.
+
+**NIVEL 11: FURIA IMPLACABLE**
+Tu furia puede mantenerte luchando a pesar de las heridas graves. Si tus puntos de golpe se reducen a 0 mientras estás en furia y no mueres al instante, puedes hacer una tirada de salvación de Constitución CD 10. Si tienes éxito, te quedas con 1 punto de golpe.
+
+**NIVEL 15: FURIA PERSISTENTE**
+Tu furia es tan intensa que solo termina antes de tiempo si caes inconsciente o si tú decides finalizarla.
 """,
+
     "Bardo": """# BARDO
-**Dado de Golpe:** 1d8.
-**Competencias:** Ligera. Armas sencillas, ballesta mano, espada larga/corta, estoque. 3 instrumentos.
+**Dado de Golpe:** 1d8 por nivel de bardo.
+**Competencias:** Armaduras ligeras. Armas sencillas.
+**Herramientas:** Tres instrumentos musicales.
 **Salvaciones:** Destreza, Carisma.
+**Habilidades:** Elige tres cualesquiera.
 
-## RASGOS
-**NIVEL 1: INSPIRACIÓN**
-Acción bonus: Dar d6 a aliado (60 min uso).
+## RASGOS DE CLASE
+**NIVEL 1: INSPIRACIÓN BÁRDICA**
+Como acción adicional, puedes inspirar a otra criatura que esté a 18 m o menos de ti. Esa criatura obtiene un dado de Inspiración bárdica (d6). Una vez en los siguientes 60 minutos, la criatura puede tirar el dado y sumar el resultado a una prueba de característica, tirada de ataque o tirada de salvación.
 
-**NIVEL 1: CONJUROS**
-Carisma. Rituales permitidos.
+**NIVEL 1: LANZAMIENTO DE CONJUROS**
+Lanzas conjuros usando tu Carisma. Puedes lanzar cualquier conjuro de bardo que conozcas como un ritual si tiene la etiqueta de ritual.
 
 **NIVEL 2: APRENDIZ DE MUCHO**
-Sumas mitad de competencia a pruebas sin competencia.
+Puedes sumar la mitad de tu bonificador por competencia (redondeando hacia abajo) a cualquier prueba de característica que hagas que no use ya tu bonificador por competencia.
 
-**NIVEL 2: CANCIÓN DE DESCANSO**
-Aliados recuperan +1d6 en descanso corto.
+**NIVEL 2: PERICIA**
+Elige dos de tus competencias en habilidades. Tu bonificador por competencia se duplica para cualquier prueba de característica que hagas usándolas.
 
-**NIVEL 3: COLEGIO (SUBCLASE)**
-Eliges tu especialidad.
-
-**NIVEL 3: PERICIA**
-Doble competencia en 2 habilidades.
+**NIVEL 3: SUBCLASE DE BARDO**
+Eliges un Colegio de Bardo (Danza, Conocimiento, Glamour, Valor).
 
 **NIVEL 5: FUENTE DE INSPIRACIÓN**
-Recuperas inspiración en descanso corto. Dado sube a d8.
+Recuperas todos tus usos de Inspiración bárdica cuando terminas un descanso corto o largo. Además, tu dado de Inspiración bárdica se convierte en un d8.
+
+**NIVEL 6: CONTRAENCANTAMIENTO**
+Como reacción cuando tú o una criatura a 9 m falláis una salvación contra un efecto que hechiza o asusta, puedes permitir que la criatura repita la salvación con ventaja.
+
+**NIVEL 10: SECRETOS MÁGICOS**
+Has aprendido conocimientos mágicos de un amplio espectro de disciplinas. Elige dos conjuros de cualquier clase (Bardo, Clérigo, Druida, Mago, etc.).
+
+**NIVEL 20: PALABRAS DE CREACIÓN**
+Siempre tienes preparados los conjuros Palabra de poder: sanar y Palabra de poder: matar. Puedes lanzar uno de ellos sin gastar un espacio de conjuro una vez por descanso largo.
 """,
+
     "Clérigo": """# CLÉRIGO
-**Dado de Golpe:** 1d8.
-**Competencias:** Ligera, Media, Escudos. Sencillas.
+**Dado de Golpe:** 1d8 por nivel de clérigo.
+**Competencias:** Armaduras ligeras, medias y escudos. Armas sencillas.
 **Salvaciones:** Sabiduría, Carisma.
+**Habilidades:** Elige dos: Historia, Medicina, Perspicacia, Persuasión o Religión.
 
-## RASGOS
-**NIVEL 1: DOMINIO (SUBCLASE)**
-Eliges Vida, Guerra, Luz, etc. Otorga rasgos.
+## RASGOS DE CLASE
+**NIVEL 1: LANZAMIENTO DE CONJUROS**
+Preparas conjuros divinos diariamente. Sabiduría es tu aptitud mágica. Puedes lanzar rituales.
 
-**NIVEL 1: CONJUROS**
-Sabiduría. Preparas lista diaria.
+**NIVEL 1: ORDEN DIVINA**
+Elige una:
+* **Protector:** Competencia con armas marciales y armaduras pesadas.
+* **Taumaturgo:** Un truco extra y sumas tu Sabiduría a pruebas de Religión o Arcanos.
 
 **NIVEL 2: CANALIZAR DIVINIDAD**
-Expulsar Muertos Vivientes (huyen si fallan SAB). Efecto de Dominio.
+Ganas la capacidad de canalizar energía divina, empezando con dos efectos:
+* **Chispa Divina:** Acción mágica. Curas o dañas (radiante/necrótico) 1d8 + Sab a una criatura.
+* **Expulsar Muertos Vivientes:** Acción mágica. Cada muerto viviente a 9 m debe superar salvación de Sabiduría o huir.
+
+**NIVEL 3: SUBCLASE DE CLÉRIGO**
+Eliges un Dominio Divino (Guerra, Luz, Vida, Engaño).
 
 **NIVEL 5: DESTRUIR MUERTOS VIVIENTES**
-Si fallan expulsión, reciben daño radiante.
+Cuando un muerto viviente falla su salvación contra tu Expulsar muertos vivientes, la criatura recibe daño radiante instantáneo.
+
+**NIVEL 7: GOLPES BENDITOS**
+Elige uno:
+* **Golpe Divino:** 1d8 daño radiante/necrótico extra con armas (1/turno).
+* **Lanzamiento de Conjuros Potente:** Sumas Sabiduría al daño de tus trucos.
+
+**NIVEL 10: INTERVENCIÓN DIVINA**
+Puedes invocar a tu deidad para que intervenga. Como acción, describe la asistencia que buscas y tira dados de porcentaje. Si sacas un número igual o menor a tu nivel de clérigo, tu deidad interviene.
 """,
+
     "Druida": """# DRUIDA
-**Dado de Golpe:** 1d8.
-**Competencias:** Ligera, Media, Escudos (No metal). Armas druídicas. Herboristería.
+**Dado de Golpe:** 1d8 por nivel de druida.
+**Competencias:** Armaduras ligeras, medias y escudos (no de metal). Armas de druida (bastón, cimitarra, hoz, etc). Útiles de herborista.
 **Salvaciones:** Inteligencia, Sabiduría.
+**Habilidades:** Elige dos: Arcanos, Medicina, Naturaleza, Percepción, Perspicacia, Religión, Supervivencia o Trato con animales.
 
-## RASGOS
+## RASGOS DE CLASE
 **NIVEL 1: DRUÍDICO**
-Idioma secreto.
+Conoces el idioma secreto Druídico.
 
-**NIVEL 1: CONJUROS**
-Sabiduría. Preparas lista diaria.
+**NIVEL 1: ORDEN PRIMIGENIA**
+Elige una:
+* **Guardián:** Competencia armadura media y armas marciales.
+* **Naturalista:** Truco extra. Sumas Sabiduría a Naturaleza.
+
+**NIVEL 2: COMPAÑERO SALVAJE**
+Puedes gastar un uso de Forma Salvaje para lanzar *Encontrar Familiar* sin componentes materiales. El familiar es un espíritu feérico.
 
 **NIVEL 2: FORMA SALVAJE**
-Transformarse en bestia (VD 1/4 al inicio). Mantienes mente, usas físico bestia.
+Como acción adicional, puedes transformarte mágicamente en una bestia que hayas visto antes. Puedes mantener la forma un número de horas igual a la mitad de tu nivel de druida.
 
-**NIVEL 2: CÍRCULO (SUBCLASE)**
-Eliges Tierra, Luna, etc.
+**NIVEL 3: SUBCLASE DE DRUIDA**
+Eliges un Círculo Druídico (Luna, Tierra, Estrellas, Mar).
+
+**NIVEL 5: RESURGIMIENTO SALVAJE**
+Puedes usar un uso de Forma Salvaje para recuperar un espacio de conjuro de nivel 1 (acción adicional).
+
+**NIVEL 18: CONJURAR COMO BESTIA**
+Puedes lanzar muchos de tus conjuros de druida en cualquier forma que adoptes con Forma Salvaje.
 """,
-    "Guerrero": """# GUERRERO
-**Dado de Golpe:** 1d10.
-**Competencias:** Todas armaduras, Escudos. Todas armas.
+
+    "Guerrero": """# GUERRERO (FIGHTER)
+**Dado de Golpe:** 1d10 por nivel de guerrero.
+**Competencias:** Todas las armaduras y escudos. Armas sencillas y marciales.
 **Salvaciones:** Fuerza, Constitución.
+**Habilidades:** Elige dos: Acrobacias, Atletismo, Historia, Intimidación, Percepción, Perspicacia, Supervivencia o Trato con animales.
 
-## RASGOS
-**NIVEL 1: ESTILO COMBATE**
-Defensa, Arqueria, Duelo, etc.
+## RASGOS DE CLASE
+**NIVEL 1: ESTILO DE COMBATE**
+Adoptas un estilo de combate particular como especialidad (Arququería, Defensa, Duelo, Arma a dos manos, Protección, Combate con dos armas).
 
-**NIVEL 1: SEGUNDO ALIENTO**
-Bonus: Curas 1d10 + Nivel (1/descanso).
+**NIVEL 1: MAESTRÍA CON ARMAS**
+Dominas las propiedades de maestría de 3 armas a tu elección.
 
-**NIVEL 2: ACTION SURGE**
-Haces una acción extra en tu turno (1/descanso).
+**NIVEL 1: TOMAR ALIENTO (SECOND WIND)**
+Tienes una reserva de resistencia. En tu turno, puedes usar una acción adicional para recuperar puntos de golpe iguales a 1d10 + tu nivel de guerrero.
 
-**NIVEL 3: ARQUETIPO (SUBCLASE)**
-Campeón, Maestro Batalla, etc.
+**NIVEL 2: ACCIÓN SÚBITA (ACTION SURGE)**
+Puedes forzarte para superar tus límites normales momentáneamente. En tu turno, puedes realizar una acción adicional aparte de tu acción normal y tu posible acción extra.
 
-**NIVEL 5: ATAQUE EXTRA**
-Dos ataques por acción.
+**NIVEL 2: MENTE TÁCTICA**
+Cuando fallas una prueba de característica, puedes gastar un uso de Tomar Aliento para sumar 1d10 a la tirada.
+
+**NIVEL 3: SUBCLASE DE GUERRERO**
+Eliges un Arquetipo Marcial (Campeón, Caballero Arcano, Maestro de Batalla, Guerrero Psiónico).
+
+**NIVEL 5: ATAQUE ADICIONAL**
+Puedes atacar dos veces, en lugar de una, siempre que realices la acción de Atacar en tu turno.
+
+**NIVEL 9: INDÓMITO**
+Puedes volver a tirar una tirada de salvación que falles. Debes usar el nuevo resultado.
 """,
-    "Monje": """# MONJE
-**Dado de Golpe:** 1d8.
-**Competencias:** Sencillas, Espadas cortas.
-**Salvaciones:** Fuerza, Destreza.
 
-## RASGOS
+    "Monje": """# MONJE
+**Dado de Golpe:** 1d8 por nivel de monje.
+**Competencias:** Armas sencillas y espadas cortas.
+**Salvaciones:** Fuerza, Destreza.
+**Habilidades:** Elige dos: Acrobacias, Atletismo, Historia, Percepción, Religión o Sigilo.
+
+## RASGOS DE CLASE
 **NIVEL 1: DEFENSA SIN ARMADURA**
-CA = 10 + Des + Sab.
+Mientras no lleves armadura ni escudo, tu CA es 10 + Destreza + Sabiduría.
 
 **NIVEL 1: ARTES MARCIALES**
-Usas DES para ataque/daño. Dado daño d4 (sube). Ataque extra desarmado como bonus.
+* Puedes usar Destreza en lugar de Fuerza para ataques y daño desarmado/armas de monje.
+* Puedes tirar un d6 en lugar del daño normal de tu ataque sin armas.
+* Cuando usas la acción de Atacar con un ataque sin armas o arma de monje, puedes realizar un ataque sin armas como acción adicional.
 
-**NIVEL 2: KI**
-Puntos = Nivel.
-* Ráfaga: 2 ataques bonus (1 ki).
-* Paciente: Esquivar bonus (1 ki).
-* Paso Viento: Destrabar/Correr bonus (1 ki).
+**NIVEL 2: CONCENTRACIÓN (KI)**
+Tienes puntos de concentración igual a tu nivel.
+* **Ráfaga de Golpes:** Gasta 1 punto para hacer dos ataques sin armas como acción adicional.
+* **Defensa Paciente:** Gasta 1 punto para realizar la acción de Esquivar y Destrabarse como acción adicional.
+* **Paso del Viento:** Gasta 1 punto para realizar la acción de Destrabarse y Correr como acción adicional, y tu salto se duplica.
 
-**NIVEL 3: DESVIAR FLECHAS**
-Reacción para reducir daño proyectil.
+**NIVEL 2: METABOLISMO ASOMBROSO**
+Una vez por día, al tirar iniciativa, recuperas todos tus puntos de concentración y sanas tu nivel de monje en HP.
 
-**NIVEL 3: TRADICIÓN (SUBCLASE)**
-Mano Abierta, Sombra, etc.
+**NIVEL 3: DESVIAR ATAQUES**
+Puedes usar tu reacción para desviar o atrapar el proyectil cuando te golpea un ataque de arma a distancia. El daño se reduce en 1d10 + Destreza + Nivel de monje.
 
 **NIVEL 5: GOLPE ATURDIDOR**
-Gastar 1 ki para aturdir (CON save).
+Cuando golpeas a otra criatura con un ataque de arma cuerpo a cuerpo, puedes gastar 1 punto de concentración para intentar un golpe aturdidor.
 """,
+
     "Paladín": """# PALADÍN
-**Dado de Golpe:** 1d10.
-**Competencias:** Todas armaduras, Escudos. Todas armas.
+**Dado de Golpe:** 1d10 por nivel de paladín.
+**Competencias:** Todas las armaduras y escudos. Armas sencillas y marciales.
 **Salvaciones:** Sabiduría, Carisma.
+**Habilidades:** Elige dos: Atletismo, Intimidación, Medicina, Perspicacia, Persuasión o Religión.
 
-## RASGOS
+## RASGOS DE CLASE
+**NIVEL 1: IMPONER LAS MANOS**
+Tienes una reserva de curación igual a tu nivel de paladín x 5. Como acción, puedes tocar a una criatura y sanarla gastando puntos de la reserva. También puedes gastar 5 puntos para curar una enfermedad o neutralizar un veneno.
+
 **NIVEL 1: SENTIDO DIVINO**
-Detectas celestiales/infernales/no-muertos.
+Como acción adicional, puedes abrir tu conciencia para detectar fuerzas del bien y del mal. Conoces la ubicación de cualquier celestial, infernal o muerto viviente a 18 m de ti.
 
-**NIVEL 1: IMPONER MANOS**
-Puntos curación = Nivel x 5.
+**NIVEL 2: ESTILO DE COMBATE**
+Eliges un estilo de combate (Defensa, Duelo, Arma a dos manos, Protección).
 
-**NIVEL 2: ESTILO COMBATE**
-Defensa, Duelo, etc.
+**NIVEL 2: LANZAMIENTO DE CONJUROS**
+Preparas conjuros divinos. Carisma es tu aptitud mágica.
 
-**NIVEL 2: CONJUROS**
-Carisma. Preparas lista (Nivel/2 + Car).
+**NIVEL 2: CASTIGO DIVINO (SMITE)**
+Cuando golpeas a una criatura con un ataque de arma cuerpo a cuerpo, puedes gastar un espacio de conjuro para infligir daño radiante adicional al objetivo (2d8 por un espacio de nivel 1, +1d8 por cada nivel superior).
 
-**NIVEL 2: DIVINE SMITE**
-Gasta slot para +2d8 radiante en golpe.
+**NIVEL 3: CANALIZAR DIVINIDAD**
+Obtienes opciones de canalizar energía divina según tu Juramento Sagrado.
 
-**NIVEL 3: JURAMENTO (SUBCLASE)**
-Devoción, Venganza, Antiguos.
+**NIVEL 3: SUBCLASE DE PALADÍN**
+Eliges un Juramento Sagrado (Devoción, Gloria, Antiguos, Venganza).
+
+**NIVEL 6: AURA DE PROTECCIÓN**
+Siempre que tú o una criatura amistosa a 3 m de ti debáis realizar una tirada de salvación, la criatura gana un bonificador a la tirada igual a tu modificador por Carisma.
 """,
-    "Explorador (Ranger)": """# EXPLORADOR
-**Dado de Golpe:** 1d10.
-**Competencias:** Ligera, Media, Escudos. Todas armas.
+
+    "Explorador (Ranger)": """# EXPLORADOR (RANGER)
+**Dado de Golpe:** 1d10 por nivel de explorador.
+**Competencias:** Armaduras ligeras, medias y escudos. Armas sencillas y marciales.
 **Salvaciones:** Fuerza, Destreza.
+**Habilidades:** Elige tres: Atletismo, Investigación, Naturaleza, Percepción, Perspicacia, Sigilo, Supervivencia o Trato con animales.
 
-## RASGOS
+## RASGOS DE CLASE
 **NIVEL 1: ENEMIGO PREDILECTO**
-Ventajas contra un tipo de enemigo.
+Siempre tienes preparado el conjuro *Marca del Cazador*. Puedes lanzarlo sin gastar espacio de conjuro una cantidad de veces igual a tu modificador de Sabiduría.
 
-**NIVEL 1: EXPLORADOR NATO**
-Ventajas en terreno elegido.
+**NIVEL 1: EXPLORADOR HÁBIL (DEFT EXPLORER)**
+* Ganas pericia en una de tus habilidades.
+* Aprendes dos idiomas adicionales.
 
-**NIVEL 2: ESTILO COMBATE**
-Arqueria, Dos armas, etc.
+**NIVEL 1: LANZAMIENTO DE CONJUROS**
+Preparas conjuros de la naturaleza. Sabiduría es tu aptitud mágica.
 
-**NIVEL 2: CONJUROS**
-Sabiduría.
+**NIVEL 2: ESTILO DE COMBATE**
+Eliges un estilo de combate (Arququería, Defensa, Duelo, Combate con dos armas).
 
-**NIVEL 3: ARQUETIPO (SUBCLASE)**
-Cazador, Bestias, etc.
+**NIVEL 3: SUBCLASE DE EXPLORADOR**
+Eliges un Conclave de Explorador (Cazador, Bestias, Acechador en la Penumbra, Errante Feérico).
+
+**NIVEL 5: ATAQUE ADICIONAL**
+Puedes atacar dos veces, en lugar de una, siempre que realices la acción de Atacar en tu turno.
+
+**NIVEL 6: ERRANTE (ROVING)**
+Tu velocidad caminando aumenta en 3 m. Ganas velocidad de escalada y natación igual a tu velocidad caminando.
 """,
-    "Pícaro": """# PÍCARO
-**Dado de Golpe:** 1d8.
-**Competencias:** Ligera. Sencillas, ballesta mano, espadas, arco corto. Herramientas ladrón.
-**Salvaciones:** Destreza, Inteligencia.
 
-## RASGOS
+    "Pícaro": """# PÍCARO (ROGUE)
+**Dado de Golpe:** 1d8 por nivel de pícaro.
+**Competencias:** Armaduras ligeras. Armas sencillas, ballesta de mano, espada larga, estoque, espada corta. Herramientas de ladrón.
+**Salvaciones:** Destreza, Inteligencia.
+**Habilidades:** Elige cuatro: Acrobacias, Atletismo, Engaño, Intimidación, Investigación, Juego de manos, Percepción, Perspicacia, Persuasión, Sigilo.
+
+## RASGOS DE CLASE
 **NIVEL 1: PERICIA**
-Doble competencia en 2 habilidades.
+Elige dos de tus competencias en habilidades, o una habilidad y herramientas de ladrón. Tu bonificador por competencia se duplica para ellas.
 
 **NIVEL 1: ATAQUE FURTIVO**
-+1d6 daño si tienes ventaja o aliado cerca (arma sutil/rango). Sube con nivel.
+Una vez por turno, puedes infligir 1d6 de daño adicional a una criatura a la que golpees con un ataque si tienes ventaja en la tirada de ataque. El ataque debe usar un arma sutil o a distancia. No necesitas ventaja si otro enemigo del objetivo está a 1.5 m de él.
 
 **NIVEL 1: JERGA DE LADRONES**
-Idioma secreto.
+Durante tu entrenamiento aprendiste la jerga de ladrones, una mezcla de dialecto, argot y código secreto.
 
 **NIVEL 2: ACCIÓN ASTUTA**
-Bonus: Correr, Destrabarse, Esconderse.
+Tu rapidez mental y agilidad te permiten moverte y actuar rápidamente. Puedes realizar una acción adicional en cada uno de tus turnos de combate. Esta acción solo puede usarse para: Correr, Destrabarse o Esconderse.
 
-**NIVEL 3: ARQUETIPO (SUBCLASE)**
-Ladrón, Asesino, Arcane Trickster.
+**NIVEL 3: SUBCLASE DE PÍCARO**
+Eliges un Arquetipo de Pícaro (Ladrón, Asesino, Embaucador Arcano, Soulknife).
 
 **NIVEL 5: ESQUIVA ASOMBROSA**
-Reacción: Mitad daño de un ataque.
+Cuando un atacante que puedes ver te golpea con un ataque, puedes usar tu reacción para reducir a la mitad el daño del ataque contra ti.
+
+**NIVEL 7: EVASIÓN**
+Cuando estás sometido a un efecto que te permite hacer una tirada de salvación de Destreza para recibir solo la mitad de daño, no recibes daño si tienes éxito y solo la mitad si fallas.
 """,
-    "Hechicero": """# HECHICERO
-**Dado de Golpe:** 1d6.
-**Competencias:** Ninguna armadura. Sencillas.
+
+    "Hechicero": """# HECHICERO (SORCERER)
+**Dado de Golpe:** 1d6 por nivel de hechicero.
+**Competencias:** Ninguna armadura. Armas sencillas.
 **Salvaciones:** Constitución, Carisma.
+**Habilidades:** Elige dos: Arcanos, Engaño, Intimidación, Perspicacia, Persuasión o Religión.
 
-## RASGOS
-**NIVEL 1: ORIGEN (SUBCLASE)**
-Dracónico, Salvaje, etc.
+## RASGOS DE CLASE
+**NIVEL 1: LANZAMIENTO DE CONJUROS**
+La magia innata fluye a través de ti. Conoces conjuros y los lanzas usando Carisma.
 
-**NIVEL 1: CONJUROS**
-Carisma. Conocidos (no preparados).
+**NIVEL 1: HECHICERÍA INNATA**
+Como acción adicional, puedes entrar en un estado de poder durante 1 minuto. La CD de tus conjuros aumenta en 1 y tienes ventaja en tiradas de ataque de conjuro.
 
 **NIVEL 2: FUENTE DE MAGIA**
-Puntos de Hechicería. Crear slots con puntos y viceversa.
+Tienes una reserva de Puntos de Hechicería igual a tu nivel. Puedes usarlos para crear espacios de conjuro o convertir espacios en puntos.
 
-**NIVEL 3: METAMAGIA**
-Modificar conjuros (Sutil, Gemelo, Rápido).
+**NIVEL 2: METAMAGIA**
+Obtienes la capacidad de alterar tus conjuros. Eliges 2 opciones de Metamagia (ej: Conjuro Cuidadoso, Conjuro Sutil, Conjuro Gemelo).
+
+**NIVEL 3: SUBCLASE DE HECHICERO**
+Eliges un Origen Hechicero (Dracónico, Magia Salvaje, Aberrante, Mecánico).
+
+**NIVEL 5: RESPUESTA HECHICERA**
+Cuando fallas una tirada de salvación, puedes gastar puntos de hechicería para volver a tirar.
 """,
-    "Brujo (Warlock)": """# BRUJO
-**Dado de Golpe:** 1d8.
-**Competencias:** Ligera. Sencillas.
+
+    "Brujo (Warlock)": """# BRUJO (WARLOCK)
+**Dado de Golpe:** 1d8 por nivel de brujo.
+**Competencias:** Armaduras ligeras. Armas sencillas.
 **Salvaciones:** Sabiduría, Carisma.
+**Habilidades:** Elige dos: Arcanos, Engaño, Historia, Intimidación, Investigación, Naturaleza o Religión.
 
-## RASGOS
-**NIVEL 1: PATRÓN (SUBCLASE)**
-Archifey, Demonio, Primigenio.
+## RASGOS DE CLASE
+**NIVEL 1: MAGIA DEL PACTO**
+Tus investigaciones arcanas te han otorgado facilidad con los conjuros.
+* **Espacios de Conjuro:** Tus espacios son siempre del máximo nivel posible.
+* **Recuperación:** Recuperas todos tus espacios gastados al finalizar un descanso corto o largo.
 
-**NIVEL 1: MAGIA DE PACTO**
-Slots siempre nivel máximo. Recargan en descanso CORTO.
+**NIVEL 1: INVOCACIONES ELDRITCH**
+En tus estudios, has descubierto invocaciones eldrítch, fragmentos de conocimiento prohibido que te imbuyen de una capacidad mágica permanente. (Eliges 1 a nivel 1, más a niveles superiores).
 
-**NIVEL 2: INVOCACIONES**
-Poderes pasivos/activos a elección.
+**NIVEL 2: ASTUCIA MÁGICA**
+Puedes recuperar la mitad de tus espacios de pacto gastados realizando un ritual de 1 minuto (1 vez/día).
 
-**NIVEL 3: PACTO**
-Hoja (arma), Cadena (familiar), Libro (trucos).
+**NIVEL 3: SUBCLASE DE BRUJO**
+Eliges un Patrón de Otro Mundo (Archifey, Celestial, Infernal, Gran Antiguo).
+
+**NIVEL 3: PACTO DEL BOON**
+Eliges un don de tu patrón (Pacto de la Hoja, Pacto de la Cadena, Pacto del Tomo).
 """,
-    "Mago": """# MAGO
-**Dado de Golpe:** 1d6.
-**Competencias:** Ninguna armadura. Sencillas.
-**Salvaciones:** Inteligencia, Sabiduría.
 
-## RASGOS
-**NIVEL 1: CONJUROS**
-Libro de conjuros. Inteligencia. Rituales desde libro.
+    "Mago": """# MAGO (WIZARD)
+**Dado de Golpe:** 1d6 por nivel de mago.
+**Competencias:** Ninguna armadura. Armas sencillas.
+**Salvaciones:** Inteligencia, Sabiduría.
+**Habilidades:** Elige dos: Arcanos, Historia, Investigación, Medicina, Naturaleza o Religión.
+
+## RASGOS DE CLASE
+**NIVEL 1: LANZAMIENTO DE CONJUROS**
+Tienes un libro de conjuros que contiene tus hechizos. Preparas una lista de conjuros diariamente. Puedes lanzar rituales directamente desde tu libro. Inteligencia es tu aptitud mágica.
 
 **NIVEL 1: RECUPERACIÓN ARCANA**
-Recuperar slots en descanso corto (1 vez/día).
+Una vez al día, cuando terminas un descanso corto, puedes elegir espacios de conjuro gastados para recuperarlos. Los espacios pueden tener un nivel combinado igual o inferior a la mitad de tu nivel de mago (redondeado hacia arriba).
 
-**NIVEL 2: TRADICIÓN (SUBCLASE)**
-Evocación, Nigromancia, etc.
+**NIVEL 1: ADEPTO EN RITUALES**
+Puedes copiar cualquier conjuro de ritual que encuentres en tu libro de conjuros y lanzarlo como ritual.
+
+**NIVEL 2: ERUDITO**
+Ganas pericia en una de tus habilidades académicas (Arcanos, Historia, Naturaleza, Religión).
+
+**NIVEL 3: SUBCLASE DE MAGO**
+Eliges una Tradición Arcana (Abjuración, Adivinación, Evocación, Ilusión).
+
+**NIVEL 5: MEMORIZAR CONJURO**
+Puedes cambiar un conjuro preparado por otro de tu libro tras 1 minuto de estudio.
 """,
-    "OTRA (Manual)": "Consulta tu manual."
+
+    "OTRA (Manual)": """# CLASE PERSONALIZADA
+Esta sección está reservada para clases que no aparecen en el Manual del Jugador 2024 o contenido de terceros.
+Por favor, consulta la fuente original de tu clase para ver los rasgos y anótalos manualmente en las notas de tu personaje.
+"""
 }
 
 # --- KITS Y HERRAMIENTAS ---
@@ -706,3 +835,4 @@ def main(page: ft.Page):
     recargar_interfaz()
 
 ft.app(target=main)
+
