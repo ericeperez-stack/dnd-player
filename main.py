@@ -1198,11 +1198,52 @@ def main(page: ft.Page):
     )
 
     # --- PESTAÑA 1: GENERAL ---
-    dd_raza = ft.Dropdown(label="Raza", options=[ft.dropdown.Option(x) for x in LISTA_RAZAS], expand=True, on_change=lambda e: update_gen("raza", e.control.value))
-    txt_raza_c = ft.TextField(label="Otra Raza", visible=False, expand=True, on_change=lambda e: update_gen("custom_raza", e.control.value))
-    dd_clase = ft.Dropdown(label="Clase", options=[ft.dropdown.Option(x) for x in LISTA_CLASES], expand=True, on_change=lambda e: update_gen("clase", e.control.value))
+# --- CAMBIO 2: CONTROLES COMPACTOS (MOBILE FRIENDLY) ---
+    # height=40 y content_padding reducen la altura del botón.
+    # text_size=12 hace que el texto quepa mejor sin romperse.
+    
+    dd_raza = ft.Dropdown(
+        label="Raza",
+        options=[ft.dropdown.Option(x) for x in LISTA_RAZAS],
+        expand=True,
+        height=40,             # Altura compacta ideal para móvil
+        text_size=12,          # Texto ajustado
+        content_padding=10,    # Menos margen interno
+        dense=True,            # Intenta compactar visualmente (estilo Material)
+        on_change=lambda e: update_gen("raza", e.control.value)
+    )
+
+    txt_raza_c = ft.TextField(
+        label="Otra Raza", 
+        visible=False, 
+        expand=True, 
+        height=40,             # Misma altura que el dropdown
+        text_size=12, 
+        content_padding=10, 
+        on_change=lambda e: update_gen("custom_raza", e.control.value)
+    )
+
+    dd_clase = ft.Dropdown(
+        label="Clase",
+        options=[ft.dropdown.Option(x) for x in LISTA_CLASES],
+        expand=True,
+        height=40,             # Altura compacta
+        text_size=12,
+        content_padding=10,
+        dense=True,
+        on_change=lambda e: update_gen("clase", e.control.value)
+    )
+    
+    # IMPORTANTE: También ajusta el campo de Nivel para que coincida en altura
+    txt_nivel = ft.TextField(
+        label="Nivel", 
+        width=60, 
+        height=40,             # Altura coincidente
+        text_size=12,
+        content_padding=10,
+        on_change=lambda e: update_gen("nivel", e.control.value)
+    )
     txt_clase_c = ft.TextField(label="Otra Clase", visible=False, expand=True, on_change=lambda e: update_gen("custom_clase", e.control.value))
-    txt_nivel = ft.TextField(label="Nivel", width=60, on_change=lambda e: update_gen("nivel", e.control.value))
     txt_hit_dice = ft.Text("?", size=20, weight="bold", color="yellow")
 
     def update_hit_dice_display():
@@ -1293,18 +1334,21 @@ def main(page: ft.Page):
         page.update()
     dd_info_clase.on_change = change_info_clase
 
-    # SOLUCIÓN DEL SCROLL: Usar ListView con expand=True
+# --- CAMBIO 1: ÁREA DE TEXTO EXPANDIBLE ---
+    # Usamos un contenedor que se expande para llenar todo el alto del móvil.
+    # El scroll=ft.ScrollMode.AUTO asegura que si el texto es largo, puedas bajar.
     tab_clase_info = ft.Container(
-        padding=10, 
+        padding=10,
         content=ft.Column([
             dd_info_clase, 
             ft.Divider(),
-            ft.ListView(
-                controls=[md_clase_info], 
-                expand=True, 
-                spacing=10
+            ft.Container(
+                content=ft.Column([md_clase_info], scroll=ft.ScrollMode.AUTO),
+                expand=True,  # <--- ESTO ES LA CLAVE: Llena todo el espacio vertical sobrante
+                border_radius=5,
+                padding=5
             )
-        ], expand=True)
+        ], expand=True) # El Column padre también debe expandirse
     )
 
     # --- PESTAÑA 3: COMBATE ---
@@ -1510,5 +1554,6 @@ def main(page: ft.Page):
     recargar_interfaz()
 
 ft.app(target=main)
+
 
 
