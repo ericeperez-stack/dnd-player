@@ -692,58 +692,441 @@ Por favor, consulta la fuente original de tu clase para ver los rasgos y anótal
 """
 }
 
-# --- KITS Y HERRAMIENTAS ---
+# --- PAQUETES DE EQUIPO ---
 DATA_KITS = {
-    "Kit de Ladrón": "Mochila, 1000 balines, hilo, campana, velas, palanca, martillo, pitones, linterna, aceite, raciones, yesca, odre, cuerda.",
-    "Kit de Diplomático": "Cofre, estuches, ropa fina, tinta, pluma, lámpara, aceite, papel, perfume, lacre, jabón.",
-    "Kit de Dungeon": "Mochila, palanca, martillo, pitones, antorchas, yesca, raciones, odre, cuerda.",
-    "Kit de Artista": "Mochila, saco, disfraces, velas, raciones, odre, kit disfraz.",
-    "Kit de Explorador": "Mochila, saco, comedor, yesca, antorchas, raciones, odre, cuerda.",
-    "Kit de Sacerdote": "Mochila, manta, velas, yesca, limosnas, incienso, vestimentas, raciones, odre.",
-    "Kit de Erudito": "Mochila, libro, tinta, pluma, pergamino, arena, cuchillo."
+    "Paquete de Artista": "(40 po) Campana, cantimplora, 3 disfraces, espejo, 8 frascos de aceite, linterna de ojo de buey, mochila, petate, raciones para 9 días y yesquero.",
+    
+    "Paquete de Diplomático": "(39 po) Cofre, 2 estuches para mapas o pergaminos, 4 frascos de aceite, 5 hojas de papel, 5 hojas de pergamino, lámpara, perfume, 5 plumas, ropas de calidad, tinta y yesquero.",
+    
+    "Paquete de Erudito": "(40 po) 10 frascos de aceite, 10 hojas de pergamino, lámpara, libro, mochila, pluma, tinta y yesquero.",
+    
+    "Paquete de Explorador": "(10 po) 10 antorchas, cantimplora, cuerda, 2 frascos de aceite, mochila, petate, raciones para 10 días y yesquero.",
+    
+    "Paquete de Explorador de Mazmorras": "(12 po) Abrojos, 10 antorchas, cantimplora, cuerda, 2 frascos de aceite, mochila, palanqueta, raciones para 10 días y yesquero.",
+    
+    "Paquete de Ladrón": "(16 po) Bolas de metal, campana, cantimplora, cuerda, 7 frascos de aceite, linterna sorda, mochila, palanqueta, raciones para 5 días, 10 velas y yesquero.",
+    
+    "Paquete de Sacerdote": "(33 po) Agua bendita, lámpara, manta, mochila, raciones para 7 días, túnica y yesquero."
 }
 
+# --- HERRAMIENTAS COMPLETAS (TEXTUALES) ---
 DATA_HERRAMIENTAS_FULL = {
-    "Herramientas de Ladrón": "Componentes: Lima, ganzúas, espejo, tijeras, alicates.",
-    "Herramientas de Navegante": "Componentes: Sextante, compás, regla, pergamino, tinta, pluma.",
-    "Kit de Disfraz": "Componentes: Cosméticos, tinte, prendas, accesorios.",
-    "Kit de Falsificación": "Componentes: Tintas, papeles, sellos, cera, herramientas escultura.",
-    "Kit de Herboristería": "Componentes: Bolsas, tijeras podar, guantes, mortero, frascos.",
-    "Kit de Envenenador": "Componentes: Viales, mortero, químicos, varilla.",
-    "Juego de Dados": "Componentes: Dados o cartas.",
-    "Suministros de Alquimista": "Componentes: Vasos, marco, varilla, mortero, ingredientes comunes.",
-    "Suministros de Cervecero": "Componentes: Jarra, lúpulo, sifón, tubos.",
-    "Suministros de Caligrafía": "Componentes: Tinta, pergaminos, plumas.",
-    "Suministros de Pintor": "Componentes: Caballete, lienzos, pinturas, pinceles.",
-    "Utensilios de Cocinero": "Componentes: Olla, cuchillos, cubiertos, rallador, especias.",
-    "Herramientas de Artesano (Gral)": "Martillo, cincel, sierra, etc según el oficio (Carpintero, Herrero, etc)."
+    "Herramientas de Albañil": """(10 po) - Peso: 4 kg
+Característica: Fuerza
+Utilizar: Esculpir un símbolo o un agujero en la piedra (CD 10).
+Fabricar: Polipasto.""",
+
+    "Herramientas de Alfarero": """(10 po) - Peso: 1.5 kg
+Característica: Inteligencia
+Utilizar: Distinguir lo que ha contenido un objeto de cerámica durante las últimas 24 horas (CD 15).
+Fabricar: Jarro, lámpara.""",
+
+    "Herramientas de Carpintero": """(8 po) - Peso: 3 kg
+Característica: Fuerza
+Utilizar: Sellar o forzar una puerta o un recipiente (CD 20).
+Fabricar: Bastón, garrote, garrote grande, antorcha, ariete portátil, barril, cofre, escalera, vara.""",
+
+    "Herramientas de Cartógrafo": """(15 po) - Peso: 3 kg
+Característica: Sabiduría
+Utilizar: Dibujar un mapa de una zona pequeña (CD 15).
+Fabricar: Mapa.""",
+
+    "Herramientas de Curtidor": """(5 po) - Peso: 2.5 kg
+Característica: Destreza
+Utilizar: Añadir un diseño a un objeto de cuero (CD 10).
+Fabricar: Honda, látigo, armadura de cuero, armadura de cuero tachonado, armadura de pieles, aljaba, bolsa, cantimplora, estuche para mapas/pergaminos/virotes, mochila, pergamino.""",
+
+    "Herramientas de Ebanista": """(1 po) - Peso: 2.5 kg
+Característica: Destreza
+Utilizar: Tallar un dibujo en madera (CD 10).
+Fabricar: Bastón, garrote, garrote grande, armas a distancia (salvo honda/fuego), canalizador arcano/druídico, dardos, flechas, pluma, virotes.""",
+
+    "Herramientas de Herrero": """(20 po) - Peso: 4 kg
+Característica: Fuerza
+Utilizar: Forzar una puerta o un recipiente (CD 20).
+Fabricar: Cualquier arma cuerpo a cuerpo (salvo madera/cuero), armaduras medias (salvo pieles), armaduras pesadas, abrojos, balas, bolas de metal, cadena, cubo, garfio, olla, palanqueta, proyectiles, puntas.""",
+
+    "Herramientas de Joyero": """(25 po) - Peso: 1 kg
+Característica: Inteligencia
+Utilizar: Discernir el valor de una gema (CD 15).
+Fabricar: Canalizador arcano, símbolo sagrado.""",
+
+    "Herramientas de Manitas": """(50 po) - Peso: 5 kg
+Característica: Destreza
+Utilizar: Montar un objeto Diminuto de chatarra que se desarma en 1 minuto (CD 20).
+Fabricar: Mosquete, pistola, campana, cerradura, espejo, esposas, frasco, linterna, pala, silbato, trampa, yesquero.""",
+
+    "Herramientas de Soplador de Vidrio": """(30 po) - Peso: 2.5 kg
+Característica: Inteligencia
+Utilizar: Distinguir contenido de objeto de vidrio en últimas 24h (CD 15).
+Fabricar: Botella de cristal, catalejo, lupa, vial.""",
+
+    "Herramientas de Tejedor": """(1 po) - Peso: 2.5 kg
+Característica: Destreza
+Utilizar: Remendar roto o coser diseño Diminuto (CD 10).
+Fabricar: Armadura acolchada, cesta, cordel, cuerda, manta, petate, red, ropas, saco, tienda, túnica.""",
+
+    "Herramientas de Zapatero": """(5 po) - Peso: 2.5 kg
+Característica: Destreza
+Utilizar: Modificar calzado para dar ventaja en Acrobacias (CD 10).
+Fabricar: Útiles de escalada.""",
+
+    "Suministros de Alquimista": """(50 po) - Peso: 4 kg
+Característica: Inteligencia
+Utilizar: Identificar sustancia o encender fuego (CD 15).
+Fabricar: Aceite, ácido, fuego de alquimista, papel, perfume, saquito de componentes.""",
+
+    "Suministros de Calígrafo": """(10 po) - Peso: 2.5 kg
+Característica: Destreza
+Utilizar: Escribir texto con florituras infalsificable (CD 15).
+Fabricar: Pergamino de conjuro, tinta.""",
+
+    "Suministros de Cervecero": """(20 po) - Peso: 4.5 kg
+Característica: Inteligencia
+Utilizar: Detectar bebida envenenada (CD 15) o identificar alcohol (CD 10).
+Fabricar: Antitoxina.""",
+
+    "Suministros de Pintor": """(10 po) - Peso: 2.5 kg
+Característica: Sabiduría
+Utilizar: Pintar imagen reconocible de memoria (CD 10).
+Fabricar: Canalizador druídico, símbolo sagrado.""",
+
+    "Útiles de Cocinero": """(1 po) - Peso: 4 kg
+Característica: Sabiduría
+Utilizar: Mejorar sabor (CD 10) o detectar veneno/podrido (CD 15).
+Fabricar: Raciones.""",
+
+    "Herramientas de Ladrón": """(25 po) - Peso: 0.5 kg
+Característica: Destreza
+Utilizar: Forzar cerradura o desarmar trampa (CD 15).""",
+
+    "Herramientas de Navegante": """(25 po) - Peso: 1 kg
+Característica: Sabiduría
+Utilizar: Trazar rumbo (CD 10) o determinar posición por estrellas (CD 15).""",
+
+    "Instrumento Musical": """(Precio/Peso Variable)
+Característica: Carisma
+Utilizar: Tocar melodía conocida (CD 10) o improvisar (CD 15).
+Variantes: Chirimía, Cuerno, Dulcémele, Flauta, Gaita, Laúd, Lira, Tambor, Viola, etc.""",
+
+    "Juego": """(Precio Variable)
+Característica: Sabiduría
+Utilizar: Distinguir trampas (CD 10) o ganar partida (CD 20).
+Variantes: Ajedrez dragón, Dados, Naipes, Tres dragones.""",
+
+    "Útiles de Envenenador": """(50 po) - Peso: 1 kg
+Característica: Inteligencia
+Utilizar: Detectar objeto envenenado (CD 10).
+Fabricar: Veneno básico.""",
+
+    "Útiles de Herborista": """(5 po) - Peso: 1.5 kg
+Característica: Inteligencia
+Utilizar: Identificar una planta (CD 10).
+Fabricar: Antitoxina, poción de curación, útiles de sanador, vela.""",
+
+    "Útiles para Disfrazarse": """(25 po) - Peso: 1.5 kg
+Característica: Carisma
+Utilizar: Maquillar (CD 10).
+Fabricar: Disfraz.""",
+
+    "Útiles para Falsificar": """(15 po) - Peso: 2.5 kg
+Característica: Destreza
+Utilizar: Escribir <10 palabras imitando letra (CD 15) o duplicar sello (CD 20)."""
 }
 
-# --- DOTES ---
+# --- DOTES COMPLETOS (TEXTUALES) ---
 DATA_DOTES_FULL = {
-    "Acechador": "Esconderse luz tenue. No revelas posición al fallar.",
-    "Actor": "+1 CAR. Ventaja Engaño/Actuación. Imitar voces.",
-    "Afortunado": "3 puntos suerte. Reroll d20.",
-    "Alerta": "+5 Iniciativa. No sorprendido.",
-    "Atleta": "+1 FUE/DES. Levantarse fácil. Escalar.",
-    "Cargador": "Ataque bonus o empujón tras correr.",
-    "Curandero": "Kit estabiliza a 1 HP. Cura 1d6+4+Nv.",
-    "Defensor": "Reacción atacar si atacan aliado.",
-    "Dureza": "+2 HP por nivel.",
-    "Francotirador": "-5 ataque / +10 daño distancia. Ignora cobertura.",
-    "Gran Maestro de Armas": "-5 ataque / +10 daño pesada. Ataque extra crítico.",
-    "Lider Inspirador": "HP Temp a aliados = Nivel + CAR.",
-    "Maestro de Armaduras Medias": "Max DES +3. Sin desventaja sigilo.",
-    "Maestro de Armaduras Pesadas": "-3 daño recibido.",
-    "Maestro de Escudos": "Empujar bonus. Evasión.",
-    "Mente Aguda": "Saber norte, hora, memoria perfecta.",
-    "Movil": "+3m vel. No oportunidad si atacas.",
-    "Observador": "+5 Pasivas. Leer labios.",
-    "Resiliente": "+1 Stat. Competencia salvación.",
-    "Ritualista": "Libro rituales.",
-    "Robusto": "Min curación dados golpe = 2xCON.",
-    "Sentinela": "Oportunidad para a 0 vel. Ignora destrabarse.",
-    "War Caster": "Ventaja concentración. Conjuro como oportunidad."
+    # --- DOTES DE ORIGEN ---
+    "Afortunado": """Dote de origen
+Obtienes los siguientes beneficios:
+* Puntos de suerte: Tienes una cantidad de puntos igual a tu bonificador por competencia. Recuperas los gastados tras un descanso largo.
+* Ventaja: Cuando tires 1d20 para una prueba, puedes gastar 1 punto para ganar ventaja.
+* Desventaja: Cuando una criatura tire 1d20 en un ataque contra ti, puedes gastar 1 punto para imponerle desventaja.""",
+
+    "Alerta": """Dote de origen
+Obtienes los siguientes beneficios:
+* Competencia en iniciativa: Puedes sumar tu bonificador por competencia a la iniciativa.
+* Intercambio de iniciativa: Justo después de tirar iniciativa, puedes cambiar tu resultado con el de un aliado dispuesto en el mismo combate (si ninguno está incapacitado).""",
+
+    "Atacante Salvaje": """Dote de origen
+Te has preparado para asestar golpes especialmente dañinos.
+Una vez por turno, cuando aciertes a un objetivo con un arma, podrás tirar dos veces los dados de daño del arma y usar el resultado que prefieras.""",
+
+    "Duro": """Dote de origen
+Tus puntos de golpe máximos aumentan en una cantidad igual al doble del nivel de tu personaje cuando adquieres esta dote.
+A partir de entonces, cada vez que subas un nivel, tus HP máximos aumentan en 2 puntos adicionales.""",
+
+    "Fabricante": """Dote de origen
+Obtienes los siguientes beneficios:
+* Competencia con herramientas: Ganas competencia con tres herramientas de artesano a tu elección.
+* Descuento: 20% de descuento al comprar objetos no mágicos.
+* Fabricación rápida: Tras un descanso largo, puedes fabricar un objeto de la tabla de fabricación rápida si tienes las herramientas. Dura hasta el siguiente descanso largo.""",
+
+    "Habilidoso": """Dote de origen
+Ganas competencia en cualquier combinación de tres habilidades o herramientas que elijas.
+Repetible: Puedes elegir esta dote más de una vez.""",
+
+    "Iniciado en la Magia": """Dote de origen
+Obtienes los siguientes beneficios:
+* Dos trucos: Aprendes 2 trucos de la lista de Clérigo, Druida o Mago.
+* Conjuro de nivel 1: Elige un conjuro de nivel 1 de la misma lista. Siempre lo tienes preparado. Puedes lanzarlo una vez gratis por descanso largo, o usando tus espacios de conjuro.
+* Cambiar conjuro: Al subir de nivel, puedes reemplazar uno de estos conjuros.
+* Repetible: Puedes elegirla más veces (con listas distintas).""",
+
+    "Matón de Taberna": """Dote de origen
+Obtienes los siguientes beneficios:
+* Ataque sin armas mejorado: Daño 1d4 + Fuerza.
+* Repetir tiradas de daño: Si sacas un 1 en el daño de ataque sin armas, puedes volver a tirar (usas el nuevo).
+* Armas improvisadas: Tienes competencia con ellas.
+* Empujar: Cuando aciertes con un ataque sin armas al Atacar, puedes empujar al objetivo 1.5m (una vez por turno).""",
+
+    "Músico": """Dote de origen
+Obtienes los siguientes beneficios:
+* Formación instrumental: Competencia con 3 instrumentos.
+* Canción alentadora: Tras un descanso corto/largo, tocas una canción. Das inspiración heroica a aliados igual a tu bonificador de competencia.""",
+
+    "Sanador": """Dote de origen
+Obtienes los siguientes beneficios:
+* Médico de batalla: Si tienes útiles de sanador, gasta un uso y una acción para que una criatura a 1.5m gaste un dado de golpe y recupere HP igual al resultado + tu competencia.
+* Repetir tiradas de curación: Si sacas un 1 al curar con conjuro o esta dote, puedes volver a tirar.""",
+
+    # --- DOTES GENERALES ---
+    "Acechador": """Requisito: Nivel 4+, Des 13+
+* Mejora de característica: +1 Destreza (max 20).
+* Visión ciega: Hasta 3 m.
+* Niebla de guerra: Ventaja en Sigilo al esconderse en combate.
+* En la sombra: Fallar un ataque escondido no revela tu posición.""",
+
+    "Actor": """Requisito: Nivel 4+, Car 13+
+* Mejora de característica: +1 Carisma (max 20).
+* Suplantación: Ventaja en Engaño/Interpretación al disfrazarte de otra persona.
+* Imitación: Puedes imitar sonidos y voces. Detectarlo requiere superar CD (8 + Car + Comp).""",
+
+    "Apresador": """Requisito: Nivel 4+, Fue/Des 13+
+* Mejora de característica: +1 Fuerza o Destreza (max 20).
+* Golpear y agarrar: Al acertar un ataque sin armas, puedes usar opciones de daño y agarre (1/turno).
+* Ventaja al atacar: Ventaja en ataques contra quien tengas agarrado.
+* Luchador rápido: No te cuesta movimiento extra mover a una criatura agarrada de tu tamaño o menor.""",
+
+    "Atacante a la Carga": """Requisito: Nivel 4+, Fue/Des 13+
+* Mejora de característica: +1 Fuerza o Destreza (max 20).
+* Carrera mejorada: Al usar la acción Correr, tu velocidad aumenta 3 m.
+* Ataque con carga: Si mueves 3m en línea recta y golpeas cuerpo a cuerpo, elige: +1d8 daño O empujar 3m (1/turno).""",
+
+    "Atleta": """Requisito: Nivel 4+, Fue/Des 13+
+* Mejora de característica: +1 Fuerza o Destreza (max 20).
+* Velocidad trepando: Igual a tu velocidad normal.
+* Levantarse de un salto: Levantarte solo cuesta 1.5 m.
+* Saltar: Saltos con carrera tras moverte solo 1.5 m.""",
+
+    "Azote de Magos": """Requisito: Nivel 4+
+* Mejora de característica: +1 Fuerza o Destreza (max 20).
+* Anticoncentración: Si dañas a alguien concentrándose, tiene desventaja en la salvación.
+* Mente robusta: Si fallas salvación de Int/Sab/Car, puedes decidir superarla (1/descanso).""",
+
+    "Centinela": """Requisito: Nivel 4+, Fue/Des 13+
+* Mejora de característica: +1 Fuerza o Destreza (max 20).
+* Guardián: Si una criatura a 1.5m usa Destrabarse o ataca a otro, puedes hacerle un ataque de oportunidad.
+* Detener: Si aciertas oportunidad, su velocidad es 0 el resto del turno.""",
+
+    "Chef": """Requisito: Nivel 4+
+* Mejora de característica: +1 Con o Sab (max 20).
+* Útiles de cocinero: Ganas competencia.
+* Comida reconstituyente: En descanso corto, cocinas. Quienes coman y gasten dados de golpe recuperan +1d8 HP.
+* Tentempiés: Preparas bocados (acción bonus comer) que dan HP Temporales = Competencia.""",
+
+    "Combatiente con Dos Armas": """Requisito: Nivel 4+, Fue/Des 13+
+* Mejora de característica: +1 Fuerza o Destreza (max 20).
+* Manejo doble mejorado: Al atacar con arma ligera, puedes hacer el ataque extra con cualquier arma que no sea 'a dos manos' (no solo ligeras).
+* Desenvainar rápido: Sacas/guardas dos armas a la vez.""",
+
+    "Combatiente Montado": """Requisito: Nivel 4+
+* Mejora de característica: +1 Fue, Des o Sab (max 20).
+* Golpe montado: Ventaja en ataques contra criaturas a pie más pequeñas que tu montura.
+* Esquivar de un salto: Tu montura gana Evasión (si tú estás montado y consciente).
+* Girar bruscamente: Puedes redirigir un ataque contra tu montura hacia ti.""",
+
+    "Duelista Defensivo": """Requisito: Nivel 4+, Des 13+
+* Mejora de característica: +1 Destreza (max 20).
+* Parada: Si empuñas arma sutil y te aciertan cuerpo a cuerpo, usa reacción para sumar Competencia a tu CA (puede hacer que falle). Dura hasta tu turno.""",
+
+    "Entrenamiento con Armas Marciales": """Requisito: Nivel 4+
+* Mejora de característica: +1 Fuerza o Destreza (max 20).
+* Competencia: Ganas competencia con armas marciales.""",
+
+    "Envenenador": """Requisito: Nivel 4+
+* Mejora de característica: +1 Des o Int (max 20).
+* Veneno potente: Tu daño de veneno ignora resistencia.
+* Preparar veneno: Competencia kit envenenador. Creas dosis (coste 50po). Aplicar es acción bonus. CD Salvación = 8 + Mod + Comp. Daño 2d8 y estado envenenado.""",
+
+    "Experto en Ballestas": """Requisito: Nivel 4+, Des 13+
+* Mejora de característica: +1 Destreza (max 20).
+* Ignorar recarga: Ignoras la propiedad de carga.
+* Disparar cuerpo a cuerpo: No tienes desventaja al disparar a 1.5m de un enemigo.
+* Manejo doble: Si atacas con arma ligera, puedes hacer ataque extra con ballesta ligera.""",
+
+    "Experto en Habilidades": """Requisito: Nivel 4+
+* Mejora de característica: +1 a una característica (max 20).
+* Competencia: Ganas una habilidad nueva.
+* Pericia: Ganas pericia en una habilidad que ya tengas.""",
+
+    "Influencia Feérica": """Requisito: Nivel 4+
+* Mejora de característica: +1 Int, Sab o Car (max 20).
+* Magia feérica: Aprendes un conjuro nvl 1 (Adivinación/Encantamiento) y Paso Brumoso. Puedes lanzarlos gratis 1 vez/día o con slots.""",
+
+    "Influencia Sombría": """Requisito: Nivel 4+
+* Mejora de característica: +1 Int, Sab o Car (max 20).
+* Magia de las sombras: Aprendes un conjuro nvl 1 (Ilusión/Nigromancia) e Invisibilidad. Puedes lanzarlos gratis 1 vez/día o con slots.""",
+
+    "Lanzador en Combate": """Requisito: Nivel 4+, puede lanzar conjuros
+* Mejora de característica: +1 Int, Sab o Car (max 20).
+* Concentración: Ventaja en Constitución para mantener concentración.
+* Conjuro reactivo: Puedes lanzar un conjuro (1 acción) como reacción de oportunidad.
+* Componentes somáticos: Puedes lanzar con las manos ocupadas (armas/escudo).""",
+
+    "Lanzador Preciso": """Requisito: Nivel 4+, puede lanzar conjuros
+* Mejora de característica: +1 Int, Sab o Car (max 20).
+* Sortear cobertura: Ignoras cobertura media y tres cuartos.
+* Cuerpo a cuerpo: No tienes desventaja al lanzar conjuros de ataque a 1.5m.
+* Alcance aumentado: +18m al alcance de conjuros de ataque (si tienen al menos 3m).""",
+
+    "Lanzador Ritual": """Requisito: Nivel 4+, Int/Sab/Car 13+
+* Mejora de característica: +1 Int, Sab o Car (max 20).
+* Conjuros rituales: Elige rituales de nivel 1 igual a tu competencia. Siempre preparados.
+* Ritual rápido: Puedes lanzar un ritual preparado con su tiempo normal (1 acción) en lugar del tiempo largo (1 vez/descanso).""",
+
+    "Líder Inspirador": """Requisito: Nivel 4+, Sab/Car 13+
+* Mejora de característica: +1 Sabiduría o Carisma (max 20).
+* Interpretación fortalecedora: Tras descanso, das HP Temporales a 6 aliados = Nivel + Mod Característica.""",
+
+    "Ligeramente Acorazado": """Requisito: Nivel 4+
+* Mejora de característica: +1 Fuerza o Destreza (max 20).
+* Entrenamiento: Competencia con armaduras ligeras y escudos.""",
+
+    "Maestro de Armas": """Requisito: Nivel 4+
+* Mejora de característica: +1 Fuerza o Destreza (max 20).
+* Propiedad de maestría: Puedes usar la propiedad de maestría de un arma a elección.""",
+
+    "Maestro en Armaduras Medias": """Requisito: Nivel 4+, Armadura Media
+* Mejora de característica: +1 Fuerza o Destreza (max 20).
+* Portador diestro: Con armadura media, puedes sumar +3 Des a la CA (en vez de +2) si tienes Des 16+.""",
+
+    "Maestro en Armaduras Pesadas": """Requisito: Nivel 4+, Armadura Pesada
+* Mejora de característica: +1 Con o Fue (max 20).
+* Reducción de daño: Reduces daño contundente/cortante/perforante en una cantidad igual a tu Competencia.""",
+
+    "Maestro en Armas de Asta": """Requisito: Nivel 4+, Fue/Des 13+
+* Mejora de característica: +1 Fuerza o Destreza (max 20).
+* Golpe con asta: Tras atacar con lanza/bastón/alabarda, acción bonus para golpear con el otro extremo (1d4).
+* Golpe reactivo: Reacción de oportunidad cuando entran en tu alcance.""",
+
+    "Maestro en Armas Pesadas": """Requisito: Nivel 4+, Fue 13+
+* Mejora de característica: +1 Fuerza (max 20).
+* Maestría: Al golpear con arma pesada, +Competencia al daño.
+* Avasallar: Si haces crítico o matas, ataque extra como acción bonus.""",
+
+    "Maestro en Escudos": """Requisito: Nivel 4+, Escudos
+* Mejora de característica: +1 Fuerza (max 20).
+* Golpe con escudo: Si atacas, puedes empujar o derribar con escudo (bonus).
+* Interponer escudo: Reacción para no recibir daño en salvaciones de DES exitosas.""",
+
+    "Mejora de Característica": """Requisito: Nivel 4+
+Aumenta una característica en +2, o dos en +1 (Max 20).
+Repetible.""",
+
+    "Mente Aguda": """Requisito: Nivel 4+, Int 13+
+* Mejora de característica: +1 Inteligencia (max 20).
+* Sabiduría popular: Pericia en una habilidad de saber (Arcanos, Historia, etc).
+* Estudio rápido: Acción Estudiar como bonus.""",
+
+    "Moderadamente Acorazado": """Requisito: Nivel 4+, Armadura Ligera
+* Mejora de característica: +1 Fuerza o Destreza (max 20).
+* Entrenamiento: Competencia con armaduras medias.""",
+
+    "Muy Acorazado": """Requisito: Nivel 4+, Armadura Media
+* Mejora de característica: +1 Con o Fue (max 20).
+* Entrenamiento: Competencia con armaduras pesadas.""",
+
+    "Observador": """Requisito: Nivel 4+, Int/Sab 13+
+* Mejora de característica: +1 Int o Sab (max 20).
+* Observador perspicaz: Pericia en Investigación, Percepción o Perspicacia.
+* Búsqueda rápida: Acción Buscar como bonus.""",
+
+    "Perforador": """Requisito: Nivel 4+
+* Mejora de característica: +1 Fue o Des (max 20).
+* Horadar: Rerollear un dado de daño perforante por turno.
+* Crítico potenciado: Críticos perforantes añaden un dado extra de daño.""",
+
+    "Rebanador": """Requisito: Nivel 4+
+* Mejora de característica: +1 Fue o Des (max 20).
+* Lacerar: Daño cortante reduce velocidad objetivo 3m (1/turno).
+* Crítico potenciado: Críticos cortantes imponen desventaja en ataques al objetivo.""",
+
+    "Resiliente": """Requisito: Nivel 4+
+* Mejora: +1 a una característica.
+* Competencia: Ganas competencia en salvaciones de esa característica.""",
+
+    "Resistente": """Requisito: Nivel 4+
+* Mejora de característica: +1 Constitución (max 20).
+* Desafiar muerte: Ventaja en salvaciones de muerte.
+* Recuperación: Bonus para gastar un dado de golpe y curarte.""",
+
+    "Telepático": """Requisito: Nivel 4+
+* Mejora: +1 Int, Sab o Car (max 20).
+* Habla telepática: 18m.
+* Detectar pensamientos: Puedes lanzarlo gratis 1/día o con slots.""",
+
+    "Telequinético": """Requisito: Nivel 4+
+* Mejora: +1 Int, Sab o Car (max 20).
+* Telequinesis menor: Aprendes Mano de Mago (invisible, más rango).
+* Empellón: Acción bonus para empujar 1.5m (Salvación FUE).""",
+
+    "Tirador de Primera": """Requisito: Nivel 4+, Des 13+
+* Mejora: +1 Destreza (max 20).
+* Sortear cobertura: Ignoras media y tres cuartos.
+* Cuerpo a cuerpo: Sin desventaja a 1.5m.
+* Tiros lejanos: Sin desventaja a largo alcance.""",
+
+    "Triturador": """Requisito: Nivel 4+
+* Mejora: +1 Fue o Con (max 20).
+* Empujar: Daño contundente mueve 1.5m (1/turno).
+* Crítico: Tus críticos dan ventaja a los ataques contra el objetivo.""",
+
+    "Veloz": """Requisito: Nivel 4+, Des/Con 13+
+* Mejora: +1 Des o Con (max 20).
+* Velocidad: +3m.
+* Terreno difícil: Ignoras terreno difícil al correr.
+* Ágil: Oportunidad contra ti tiene desventaja.""",
+
+    "Versado en un Elemento": """Requisito: Nivel 4+, conjuros
+* Mejora: +1 Int, Sab o Car (max 20).
+* Dominio: Elige un tipo (fuego, frío, etc). Ignoras resistencia. Los 1s en daño cuentan como 2s.""",
+
+    # --- ESTILOS DE COMBATE ---
+    "Estilo: Armas a Dos Manos": "Rerollea 1s y 2s en daño con armas a dos manos/versátiles.",
+    "Estilo: Armas Arrojadizas": "+2 daño con armas arrojadizas.",
+    "Estilo: Dos Armas": "Sumas modificador de característica al daño del segundo ataque.",
+    "Estilo: Sin Armas": "Daño desarmado 1d6 + Fue (o 1d8). 1d4 daño a agarrados.",
+    "Estilo: Defensa": "+1 CA con armadura.",
+    "Estilo: Duelo": "+2 daño con una sola arma.",
+    "Estilo: Intercepción": "Reacción para reducir daño a aliado (1d10+Comp).",
+    "Estilo: Lucha a Ciegas": "Visión ciega 3m.",
+    "Estilo: Protección": "Reacción con escudo para dar desventaja a ataque contra aliado.",
+    "Estilo: Tiro con Arco": "+2 ataque armas distancia.",
+
+    # --- DONES ÉPICOS (Nivel 19+) ---
+    "Don de la Fortaleza": "+1 Característica (max 30). +40 HP. Curación extra por turno.",
+    "Don de la Habilidad": "+1 Característica (max 30). Competencia en TODAS las habilidades. Pericia en una.",
+    "Don de la Pericia": "+1 Característica (max 30). Si fallas ataque, puedes acertar (1/turno).",
+    "Don de la Recuperación": "+1 Característica. Evitas caer a 0 HP (1/descanso). Reserva curación 10d10.",
+    "Don de Resistencia": "+1 Característica. Resistencia a 2 tipos de daño. Reacción para redirigir daño.",
+    "Don de la Velocidad": "+1 Característica. Acción bonus Destrabarse. +9m velocidad.",
+    "Don de Visión Verdadera": "+1 Característica. Visión verdadera 18m.",
+    "Don de Ataque Imparable": "+1 Fue/Des. Ignoras resistencia física. Críticos añaden daño extra.",
+    "Don del Destino": "+1 Característica. Bonus/Penalizador 2d4 a una tirada cercana (1/combate).",
+    "Don Espíritu Noche": "+1 Característica. Invisibilidad como bonus en oscuridad. Resistencia daño (salvo rad/psi).",
+    "Don Recuerdo Conjuros": "+1 Int/Sab/Car. 25% prob. de no gastar slot (niveles 1-4).",
+    "Don Viaje Dimensional": "+1 Característica. Teletransporte 9m tras atacar o lanzar conjuro."
 }
 
 def main(page: ft.Page):
@@ -1127,4 +1510,5 @@ def main(page: ft.Page):
     recargar_interfaz()
 
 ft.app(target=main)
+
 
