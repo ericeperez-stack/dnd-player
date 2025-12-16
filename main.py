@@ -1195,16 +1195,15 @@ def main(page: ft.Page):
         content=ft.Row([ft.Icon("person"), dd_personajes, ft.IconButton("add", on_click=nuevo_pj)], alignment="center")
     )
 
-    # --- PESTAÑA 1: GENERAL (MODO SEGURO) ---
-    # Eliminamos el height=40 forzado para evitar crashes en móviles con fuentes grandes.
-    # Usamos dense=True para mantenerlo compacto de forma natural.
+    # --- PESTAÑA 1: GENERAL (OPTIMIZADA) ---
+    # Corrección de tamaño: Quitamos expand=True y usamos width fijo (170) para limitar tamaño horizontal.
+    # dense=True mantiene la altura compacta.
     padding_compact = ft.padding.symmetric(horizontal=10)
 
     dd_raza = ft.Dropdown(
         label="Raza",
         options=[ft.dropdown.Option(x) for x in LISTA_RAZAS],
-        expand=True,
-        # height=40,  <-- ELIMINADO PARA SEGURIDAD
+        width=170, # Tamaño limitado
         text_size=12,
         content_padding=padding_compact,
         dense=True,
@@ -1214,8 +1213,7 @@ def main(page: ft.Page):
     txt_raza_c = ft.TextField(
         label="Otra Raza", 
         visible=False, 
-        expand=True, 
-        # height=40, <-- ELIMINADO PARA SEGURIDAD
+        width=170, # Tamaño limitado
         text_size=12, 
         content_padding=padding_compact, 
         dense=True,
@@ -1225,8 +1223,7 @@ def main(page: ft.Page):
     dd_clase = ft.Dropdown(
         label="Clase",
         options=[ft.dropdown.Option(x) for x in LISTA_CLASES],
-        expand=True,
-        # height=40, <-- ELIMINADO PARA SEGURIDAD
+        width=170, # Tamaño limitado
         text_size=12,
         content_padding=padding_compact,
         dense=True,
@@ -1235,15 +1232,14 @@ def main(page: ft.Page):
     
     txt_nivel = ft.TextField(
         label="Nivel", 
-        width=60, 
-        # height=40, <-- ELIMINADO PARA SEGURIDAD
+        width=70, 
         text_size=12,
         content_padding=padding_compact, 
         dense=True,
         on_change=lambda e: update_gen("nivel", e.control.value)
     )
 
-    txt_clase_c = ft.TextField(label="Otra Clase", visible=False, expand=True, dense=True, content_padding=padding_compact, text_size=12, on_change=lambda e: update_gen("custom_clase", e.control.value))
+    txt_clase_c = ft.TextField(label="Otra Clase", visible=False, width=170, dense=True, content_padding=padding_compact, text_size=12, on_change=lambda e: update_gen("custom_clase", e.control.value))
     txt_hit_dice = ft.Text("?", size=20, weight="bold", color="yellow")
 
     def update_hit_dice_display():
@@ -1316,9 +1312,10 @@ def main(page: ft.Page):
     tab_general = ft.Container(
         content=ft.ListView([
             ft.Text("Datos", weight="bold"), 
-            ft.Row([dd_raza, dd_clase]), 
-            ft.Row([txt_nivel, ft.Text("Dado de Golpe:", color="grey"), txt_hit_dice]), 
-            ft.Row([txt_raza_c, txt_clase_c]),
+            # Row centrada para que no se estiren
+            ft.Row([dd_raza, dd_clase], alignment=ft.MainAxisAlignment.CENTER), 
+            ft.Row([txt_nivel, ft.Text("Dado de Golpe:", color="grey"), txt_hit_dice], alignment=ft.MainAxisAlignment.CENTER), 
+            ft.Row([txt_raza_c, txt_clase_c], alignment=ft.MainAxisAlignment.CENTER),
             ft.Divider(), ft.Text("Stats", weight="bold"), col_stats,
             ft.Divider(), 
             ft.Text("Dotes (Feats)", weight="bold"), 
@@ -1328,8 +1325,9 @@ def main(page: ft.Page):
         expand=True
     )
 
-    # --- PESTAÑA 2: INFO DE CLASE (CORREGIDA) ---
-    dd_info_clase = ft.Dropdown(options=[ft.dropdown.Option(c) for c in LISTA_CLASES if c != "OTRA (Manual)"], label="Ver Info Clase", expand=True)
+    # --- PESTAÑA 2: INFO DE CLASE (OPTIMIZADA) ---
+    # Tamaño limitado para la lista (width=200) y espacio maximizado para el texto.
+    dd_info_clase = ft.Dropdown(options=[ft.dropdown.Option(c) for c in LISTA_CLASES if c != "OTRA (Manual)"], label="Ver Info Clase", width=200, dense=True)
     md_clase_info = ft.Markdown(value="Selecciona arriba.", selectable=True)
     
     def change_info_clase(e):
@@ -1338,10 +1336,11 @@ def main(page: ft.Page):
     dd_info_clase.on_change = change_info_clase
 
     tab_clase_info = ft.Container(
-        padding=10,
+        padding=5, # Menos padding para más espacio de texto
         content=ft.Column([
-            dd_info_clase, 
-            ft.Divider(),
+            ft.Row([dd_info_clase], alignment=ft.MainAxisAlignment.CENTER), 
+            ft.Divider(height=1),
+            # Contenedor maximizado
             ft.Container(
                 content=ft.Column([md_clase_info], scroll=ft.ScrollMode.AUTO, expand=True),
                 expand=True, 
@@ -1349,7 +1348,7 @@ def main(page: ft.Page):
                 padding=5,
                 border=ft.border.all(1, "grey900")
             )
-        ], expand=True)
+        ], expand=True, spacing=5)
     )
 
     # --- PESTAÑA 3: COMBATE ---
