@@ -13,7 +13,7 @@ DADOS_GOLPE = {
 
 # --- INFORMACIÓN TEXTUAL DE CLASES ---
 DATA_CLASES_INFO = {
-    "Bárbaro": """# BÁRBARO
+     "Bárbaro": """# BÁRBARO
 **Dado de Golpe:** 1d12 por nivel de bárbaro.
 **Competencias:** Armaduras ligeras, medias y escudos. Armas sencillas y marciales.
 **Salvaciones:** Fuerza, Constitución.
@@ -45,6 +45,9 @@ Ganas competencia en otra habilidad de la lista de habilidades de bárbaro. Adem
 **NIVEL 3: SUBCLASE DE BÁRBARO**
 Consigues una subclase de bárbaro de tu elección (Senda del Árbol del Mundo, Berserker, Corazón Salvaje, Fanático).
 
+**NIVEL 4: MEJORA DE CARACTERÍSTICA**
+Obtienes la dote Mejora de característica (consulta el capítulo 5) u otra dote de tu elección para la que cumplas las condiciones. Vuelves a obtener este rasgo en los niveles de bárbaro 8, 12 y 16.
+
 **NIVEL 5: ATAQUE ADICIONAL**
 Puedes atacar dos veces, en lugar de una, siempre que realices la acción de Atacar en tu turno.
 
@@ -54,14 +57,34 @@ Tu velocidad aumenta en 3 m mientras no lleves armadura pesada.
 **NIVEL 7: INSTINTO SALVAJE**
 Tu instinto es tan agudo que tienes ventaja en las tiradas de iniciativa. Además, si te sorprenden al comienzo del combate y no tienes el estado de incapacitado, puedes actuar normalmente en tu primer turno, pero solo si entras en furia antes de hacer cualquier otra cosa.
 
+**NIVEL 7: SALTO INSTINTIVO**
+Como parte de la acción adicional para dejarte llevar por la furia, puedes moverte hasta la mitad de tu velocidad. 
+
 **NIVEL 9: GOLPE BRUTAL**
 Puedes prescindir de la ventaja de tu Ataque temerario para golpear con más fuerza. Si usas Ataque temerario, puedes renunciar a la ventaja en una tirada de ataque para infligir 1d10 de daño adicional si aciertas.
 
 **NIVEL 11: FURIA IMPLACABLE**
 Tu furia puede mantenerte luchando a pesar de las heridas graves. Si tus puntos de golpe se reducen a 0 mientras estás en furia y no mueres al instante, puedes hacer una tirada de salvación de Constitución CD 10. Si tienes éxito, te quedas con 1 punto de golpe.
 
+**NIVEL 13: GOLPE BRUTAL MEJORADO**
+Has perfeccionado tus formas de atacar con fiereza. Entre las opciones de Golpe brutal se encuentran ahora los siguientes efectos:
+Golpe abrumador. El objetivo tiene desventaja en la siguiente tirada de salvación que haga y no puede llevar a cabo ataques de oportunidad hasta el principio de tu siguiente turno. 
+Golpe desgarrador. Antes del principio de tu siguiente turno, la próxima tirada de ataque realizada por otra criatura contra el objetivo obtiene un bonificador de +5. Una tirada de ataque puede obtener solo un bonificador de un golpe desgarrador. 
+
 **NIVEL 15: FURIA PERSISTENTE**
 Tu furia es tan intensa que solo termina antes de tiempo si caes inconsciente o si tú decides finalizarla.
+
+**NIVEL 17: GOLPE BRUTAL MEJORADO**
+El daño adicional de tu Golpe brutal aumenta a 2d10. Además, puedes utilizar dos efectos diferentes de Golpe brutal siempre que uses tu rasgo Golpe brutal.
+
+**NIVEL 18: PODERÍO INDÓMITO**
+Si tu resultado en una prueba de Fuerza o una tirada de salvación de Fuerza es inferior a tu puntuación de Fuerza, puedes usar esa puntuación en lugar del resultado.
+
+**NIVEL 19: DON ÉPICO**
+Obtienes una dote de don épico (consulta el capítulo 5) u otra dote de tu elección para la que cumplas las condiciones. Se recomienda Don del ataque imparable.
+
+**NIVEL 20: CAMPEÓN PRIMORDIAL**
+Encarnas un poder primigenio. Tus puntuaciones de Fuerza y Constitución aumentan en 4, hasta un máximo de 25. 
 """,
 
     "Bardo": """# BARDO
@@ -87,14 +110,23 @@ Elige dos de tus competencias en habilidades. Tu bonificador por competencia se 
 **NIVEL 3: SUBCLASE DE BARDO**
 Eliges un Colegio de Bardo (Danza, Conocimiento, Glamour, Valor).
 
+**NIVEL 4: MEJORA DE CARACTERÍSTICA**
+Obtienes la dote Mejora de característica (consulta el capítulo 5) u otra dote de tu elección para la que cumplas las condiciones. Vuelves a obtener este rasgo en los niveles de bardo 8, 12 y 16.
+
 **NIVEL 5: FUENTE DE INSPIRACIÓN**
 Recuperas todos tus usos de Inspiración bárdica cuando terminas un descanso corto o largo. Además, tu dado de Inspiración bárdica se convierte en un d8.
 
-**NIVEL 6: CONTRAENCANTAMIENTO**
+**NIVEL 7: CONTRAENCANTAMIENTO**
 Como reacción cuando tú o una criatura a 9 m falláis una salvación contra un efecto que hechiza o asusta, puedes permitir que la criatura repita la salvación con ventaja.
 
 **NIVEL 10: SECRETOS MÁGICOS**
 Has aprendido conocimientos mágicos de un amplio espectro de disciplinas. Elige dos conjuros de cualquier clase (Bardo, Clérigo, Druida, Mago, etc.).
+
+**NIVEL 18: NSPIRACIÓN SUPERIOR**
+Cuando tires iniciativa, recuperarás usos gastados de Inspiración bárdica hasta que tengas dos, si tuvieras menos de esta cifra. 
+
+**NIVEL 19: DON ÉPICO**
+Obtienes una dote de don épico (consulta el capítulo 5) u otra dote de tu elección para la que cumplas las condiciones. Se recomienda Don del recuerdo de conjuros. 
 
 **NIVEL 20: PALABRAS DE CREACIÓN**
 Siempre tienes preparados los conjuros Palabra de poder: sanar y Palabra de poder: matar. Puedes lanzar uno de ellos sin gastar un espacio de conjuro una vez por descanso largo.
@@ -123,6 +155,9 @@ Ganas la capacidad de canalizar energía divina, empezando con dos efectos:
 **NIVEL 3: SUBCLASE DE CLÉRIGO**
 Eliges un Dominio Divino (Guerra, Luz, Vida, Engaño).
 
+**NIVEL 4: MEJORA DE CARACTERÍSTICA**
+Obtienes la dote Mejora de característica (consulta el capítulo 5) u otra dote de tu elección para la que cumplas las condiciones. Vuelves a obtener este rasgo en los niveles de clerigo 8, 12 y 16.
+
 **NIVEL 5: DESTRUIR MUERTOS VIVIENTES**
 Cuando un muerto viviente falla su salvación contra tu Expulsar muertos vivientes, la criatura recibe daño radiante instantáneo.
 
@@ -133,6 +168,17 @@ Elige uno:
 
 **NIVEL 10: INTERVENCIÓN DIVINA**
 Puedes invocar a tu deidad para que intervenga. Como acción, describe la asistencia que buscas y tira dados de porcentaje. Si sacas un número igual o menor a tu nivel de clérigo, tu deidad interviene.
+
+**NIVEL 14: GOLPES BENDITOS MEJORADOS**
+La opción elegida para Golpes benditos se vuelve más poderosa.
+Golpe divino. El daño adicional de tu Golpe divino aumenta a 2d8.
+Lanzamiento potente. Cuando lances un truco de clérigo y causes daño a una criatura con él, podrás transmitir vitalidad a tio a otra criatura que esté a 18 m o menos de ti; se concederá una cantidad de puntos de golpe temporales igual al doble de tu modificador por Sabiduría. 
+
+**NIVEL 19: DON EPICO**
+Obtienes una dote de don épico (consulta el capítulo 5) u otra dote de tu elección para la que cumplas las condiciones. Se recomienda Don del destino.
+
+**NIVEL 20: INTERCESIÒN DIVINA MAYOR**
+Puedes solicitar una intercesión divina todavía más poderosa. Cuando uses tu rasgo Intercesión divina, puedes elegir deseo al seleccionar un conjuro. Si lo haces, no podrás volver a usar Intercesión divina hasta que finalices 2d4 descansos largos.
 """,
 
     "Druida": """# DRUIDA
@@ -162,8 +208,26 @@ Eliges un Círculo Druídico (Luna, Tierra, Estrellas, Mar).
 **NIVEL 5: RESURGIMIENTO SALVAJE**
 Puedes usar un uso de Forma Salvaje para recuperar un espacio de conjuro de nivel 1 (acción adicional).
 
+**NIVEL 7: FURIA ELEMENTAL**
+El poder de los elementos fluye por ti. Obtienes una de las siguientes opciones, a tu elección. 
+Golpe primordial. Una vez en cada uno de tus turnos, cuando aciertes a una criatura con una tirada de ataque usando un arma o un ataque de una bestia en Forma salvaje, podrás hacer que el objetivo sufra 1d8 de daño de frío, fuego, relámpago o trueno adicional (elígelo cuando aciertes). 
+Lanzamiento potente. Sumas tu modificador por Sabiduría al daño que causas con cualquier truco de druida. 
+
+**NIVEL 14: FURIA ELEMENTAL MEJORADA**
+La opción elegida para Furia elemental se vuelve más poderosa, como se detalla a continuación. 
+Golpe primordial. El daño adicional de tu Golpe primordial aumenta a 2d8. 
+Lanzamiento potente. Cuando lances un truco de druida con un alcance de 3 m o más, el alcance del conjuro aumentará en 90 m.
+
 **NIVEL 18: CONJURAR COMO BESTIA**
 Puedes lanzar muchos de tus conjuros de druida en cualquier forma que adoptes con Forma Salvaje.
+
+**NIVEL 19: DON EPICO**
+Obtienes una dote de don épico (consulta el capítulo 5) u otra dote de tu elección para la que cumplas las condiciones. Se recomienda Don del viaje dimensional.
+
+**NIVEL 20: ARCHIDRUIDA**
+La vitalidad de la naturaleza florece en ti de manera constante, lo que te otorga los siguientes beneficios. Forma salvaje perenne. Cuando tires iniciativa y no te queden usos de Forma salvaje, recuperas uno de los usos gastados. 
+Mago de la naturaleza. Puedes convertir los usos de Forma salvaje en un espacio de conjuro (no requiere acción). Elige una cantidad de usos no gastados de Forma salvaje para convertirlos en un único espacio de conjuro. Cada uso aporta 2 niveles de conjuro. Por ejemplo, si conviertes dos usos de Forma salvaje, produces un espacio de conjuro de nivel 4. Cuando uses este beneficio, no podrás volver a hacerlo hasta que finalices un descanso largo. 
+Longevidad. La magia primigenia que dominas ralentiza tu envejecimiento. Por cada diez años que pasen, tu cuerpo envejece solo uno.
 """,
 
     "Guerrero": """# GUERRERO (FIGHTER)
@@ -191,11 +255,32 @@ Cuando fallas una prueba de característica, puedes gastar un uso de Tomar Alien
 **NIVEL 3: SUBCLASE DE GUERRERO**
 Eliges un Arquetipo Marcial (Campeón, Caballero Arcano, Maestro de Batalla, Guerrero Psiónico).
 
+**NIVEL 4: MEJORA DE CARACTERISTICA**
+Obtienes la dote Mejora de característica (consulta el capítulo 5) u otra dote de tu elección para la que cumplas las condiciones. Vuelves a obtener este rasgo en los niveles 6, 8,12, 14 y 16 de guerrero. 
+
 **NIVEL 5: ATAQUE ADICIONAL**
 Puedes atacar dos veces, en lugar de una, siempre que realices la acción de Atacar en tu turno.
 
+**NIVEL 5: DESPLAZAMIENTO TÀCTICO**
+Cuando uses tu rasgo Tomar aliento con una acción adicional, podrás moverte hasta la mitad de tu velocidad sin provocar ataques de oportunidad. 
+
 **NIVEL 9: INDÓMITO**
 Puedes volver a tirar una tirada de salvación que falles. Debes usar el nuevo resultado.
+
+**NIVEL 9: MAESTRO TÁCTICO**
+Cuando ataques usando un arma con la que puedas utilizar su propiedad de maestría, puedes sustituir la propiedad para ese ataque por la de debilitar, empujar o ralentizar.
+
+**NIVEL 11: DOS ATAQUES ADICIONALES**
+Cuando lleves a cabo la acción de atacar en tu turno, podrás hacer tres ataques en lugar de uno.
+
+**NIVEL 13: ATAQUES ESTUDIADOS**
+Estudias a tus adversarios y aprendes con cada ataque que realizas. Si haces una tirada de ataque contra una criatura y fallas, tendrás ventaja en tu siguiente tirada de ataque contra esa criatura antes del final de tu siguiente turno.
+
+**NIVEL 19: DON ÈPICO**
+Obtienes una dote de don épico (consulta el capítulo 5) u otra dote de tu elección para la que cumplas las condiciones. Se recomienda Don de la pericia en combate. 
+
+**NIVEL 20: TRES ATAQUES ADICIONALES**
+Cuando lleves a cabo la acción de atacar en tu turno, podrás hacer cuatro ataques en lugar de uno. 
 """,
 
     "Monje": """# MONJE
@@ -222,11 +307,66 @@ Tienes puntos de concentración igual a tu nivel.
 **NIVEL 2: METABOLISMO ASOMBROSO**
 Una vez por día, al tirar iniciativa, recuperas todos tus puntos de concentración y sanas tu nivel de monje en HP.
 
+**NIVEL 2: MOVIMIENTO SIN ARMADURA**
+Tu velocidad aumenta en 3 m si no llevas armadura ni portas un escudo. Esta bonificación aumenta cuando alcanzas ciertos niveles de monje, como se muestra en la tabla “Rasgos de monje”. 
+
 **NIVEL 3: DESVIAR ATAQUES**
 Puedes usar tu reacción para desviar o atrapar el proyectil cuando te golpea un ataque de arma a distancia. El daño se reduce en 1d10 + Destreza + Nivel de monje.
 
+**NIVEL 3: SUBCLASE DE MONJE**
+Consigues una subclase de monje de tu elección. 
+Las subclases de guerrero de la mano abierta, guerrero de la misericordia, guerrero de la sombra y guerrero de los elementos se detallan tras la descripción de esta clase. Una subclase es una especialización que te proporciona rasgos cuando alcanzas ciertos niveles de monje. De aquí en adelante, obtienes todos los rasgos de tu subclase que sean de tu nivel de monje e inferiores. 
+
+**NIVEL 4: CAIDA LENTA**
+Puedes llevar a cabo una reacción cuando caigas para reducir cualquier daño que sufras de la caída en una cantidad igual a cinco veces tu nivel de monje.
+
+**NIVEL 4: MEJORA DE CARACTERÌSTICA**
+Obtienes la dote Mejora de característica (consulta el capítulo 5) u otra dote de tu elección para la que cumplas las condiciones. Vuelves a obtener este rasgo en los niveles 8, 12 y 16 de monje. 
+
+**NIVEL 5: ATAQUE ADICIONAL**
+Cuando lleves a cabo la acción de atacar en tu turno, podrás hacer dos ataques en lugar de uno.
+
 **NIVEL 5: GOLPE ATURDIDOR**
 Cuando golpeas a otra criatura con un ataque de arma cuerpo a cuerpo, puedes gastar 1 punto de concentración para intentar un golpe aturdidor.
+
+**NIVEL 6: GOLPES POTENCIADOS**
+Siempre que inflijas daño con tu ataque sin armas, puedes elegir entre causar daño de fuerza o su tipo de daño normal.
+
+**NIVEL 7: EVASIÒN**
+Cuando sufras un efecto que te permita hacer una tirada de salvación de Destreza para sufrir solo la mitad de daño, no recibes daño alguno si la superas y'solo sufres la mitad si la fallas. 
+No te beneficias de este rasgo si tienes el estado de incapacitado. 
+
+**NIVEL 9: MOVIMIENTO ACROBATICO**
+Mientras no lleves armadura ni portes un escudo, obtienes la capacidad de moverte por superficies verticales y sobre líquidos sin caerte.
+
+**NIVEL 10: AUTORRESTABLECIMIENTO**
+Por pura fuerza de voluntad, puedes eliminar uno de los siguientes estados que te afecten al final de cada uno de tus turnos: asustado, envenenado o hechizado. 
+Además, privarte de comida y bebida no te aplica niveles de cansancio. 
+
+**NIVEL 10: CONCENTRACION AGUDIZADA**
+Tus rasgos Defensa paciente, Paso del viento y Ráfaga de golpes obtienen los siguientes beneficios: 
+Defensa paciente. Cuando gastes un punto de concentración para usar Defensa paciente, obtienes una cantidad de puntos de golpe temporales igual al resultado de dos tiradas de tu dado de Artes marciales. 
+Paso del viento. Cuando gastes un punto de concentración para usar Paso del viento, puedes elegir una criatura voluntaria Grande o más pequeña que esté a 1,5 m o menos de ti. Moverás a la criatura contigo hasta el final de tu turno. El movimiento de la criatura no provoca ataques de oportunidad. 
+Ráfaga de golpes. Puedes gastar 1 punto de concentración para usar Ráfaga de golpes y hacer tres ataques sin armas en lugar de dos. 
+
+**NIVEL 13: DESVIAR ENERGIA**
+Ahora puedes usar tu rasgo Desviar ataques contra ataques que causen cualquier tipo de daño, no solo contundente, cortante o perforante. 
+
+**NiIvEL 14: SUPERVIVIENTE DISCIPLINADO**
+Tu disciplina física y mental te otorga competencia en todas las tiradas de salvación. 
+Además, cuando hagas una tirada de salvación y falles, puedes gastar 1 punto de concentración para repetirla, pero deberás utilizar el nuevo resultado. 
+
+**NiveL 15: CONCENTRACIÓN PERFECTA**
+Cuando tires iniciativa y no utilices Metabolismo asombroso, recuperas los puntos de concentración gastados hasta que tengas 4 si te quedan 3 o menos. 
+
+**NiveL 18: DEFENSA SUPERIOR**
+Al principio de tu turno, puedes gastar 3 puntos de concentración para protegerte del daño durante 1 minuto o hasta que tengas el estado de incapacitado. Durante ese tiempo, tendrás resistencia a todo el daño excepto al de fuerza. 
+
+**NiveL 19: Don ÉPICO**
+Obtienes una dote de don épico (consulta el capítulo 5) u otra dote de tu elección para la que cumplas las condiciones. Se recomienda Don del ataque imparable. 
+
+**NivEL 20: CUERPO Y MENTE**
+Has llevado tu cuerpo y mente a otro nivel. Tus puntuaciones de Destreza y Sabiduría aumentan en 4, hasta un máximo de 25. 
 """,
 
     "Paladín": """# PALADÍN
@@ -257,8 +397,38 @@ Obtienes opciones de canalizar energía divina según tu Juramento Sagrado.
 **NIVEL 3: SUBCLASE DE PALADÍN**
 Eliges un Juramento Sagrado (Devoción, Gloria, Antiguos, Venganza).
 
+**NIVEL 4: MEJORA DE CARACTERÍSTICA**
+Obtienes la dote Mejora de característica (consulta el capítulo 5) u otra dote de tu elección para la que cumplas las condiciones. Vuelves a obtener este rasgo en los niveles 8, 12 y 16 de paladín. 
+
+**NIVEL 5: ATAQUE ADICIONAL**
+Cuando lleves a cabo la acción de atacar en tu turno, podrás hacer dos ataques en lugar de uno. 
+
+**NIVEL 5: CORCEL FIEL**
+Puedes invocar la ayuda de un corcel sobrenatural. 
+Siempre tienes el conjuro hallar corcel preparado. 
+También puedes lanzarlo una vez sin gastar un espacio de conjuro y recuperas la capacidad de hacerlo tras finalizar un descanso largo. 
+
 **NIVEL 6: AURA DE PROTECCIÓN**
 Siempre que tú o una criatura amistosa a 3 m de ti debáis realizar una tirada de salvación, la criatura gana un bonificador a la tirada igual a tu modificador por Carisma.
+
+NIVEL 9: ABJURAR DE LOS ENEMIGOS 
+Como acción de magia, puedes gastar uno de los usos de Canalizar divinidad de esta clase para sobrecoger a tus enemigos. Mientras muestras tu símbolo sagrado o arma, puedes hacer objetivo a una cantidad de criaturas que puedas ver a 18 m o menos de ti igual a tu modificadorpor Carisma (mínimo una criatura). Cada objetivo deberá superar una tirada de salvación de Sabiduría o tendrá el estado de asustado durante 1 minuto o hasta recibir daño. 
+Mientras esté asustado de esta forma, un objetivo solo podrá hacer una de estas opciones en sus turnos: moverse, realizar una acción o realizar una acción adicional.
+
+**NIVEL 10: AURA DE CORAJE**
+Tus aliados y tú tenéis inmunidad al estado de asustados mientras estéis dentro de tu Aura de protección. Si un aliado asustado entra en el aura, ese estado no tendrá efecto en él mientras esté dentro. 
+
+**NIVEL 11: GOLPES RADIANTES**
+Ahora, tus golpes tienen un poder sobrenatural. Cuando aciertes a un objetivo con una tirada de ataque usando un arma cuerpo a cuerpo o un ataque sin armas, el objetivo recibirá 1d8 de daño radiante adicional. 
+
+**NIVEL 14: TOQUE REPARADOR**
+Cuando uses Imponer las manos sobre una criatura, también podrás eliminar uno o más de los siguientes estados que la afecten: asustado, aturdido, cegado, ensordecido, hechizado o paralizado. Deberás gastar 5 puntos de golpe de la reserva de curación de Imponer las manos por cada uno de los estados que elimines, pero esos puntos gastados no restaurarán puntos de golpe. 
+
+**NIVEL 18: EXPANSIÓN DE AURA**
+Tu Aura de protección ahora es una emanación de 9 m. 
+
+**NIVEL 19: Don ÉPICO**
+Obtienes una dote de don épico (consulta el capítulo 5) u otra dote de tu elección para la que cumplas las condiciones. Se recomienda Don de la visión verdadera.
 """,
 
     "Explorador (Ranger)": """# EXPLORADOR (RANGER)
@@ -278,17 +448,49 @@ Siempre tienes preparado el conjuro *Marca del Cazador*. Puedes lanzarlo sin gas
 **NIVEL 1: LANZAMIENTO DE CONJUROS**
 Preparas conjuros de la naturaleza. Sabiduría es tu aptitud mágica.
 
+**NIVEL 1: MAESTRÍA CON ARMAS**
+Tu entrenamiento con armas te permite utilizar las propiedades de maestría con dos tipos de armas de tu elección con las que tengas competencia, como arcos largos y espadas cortas. 
+Tras finalizar un descanso largo, puedes cambiar los tipos de armas elegidas. Por ejemplo, podrías pasar a utilizar las propiedades de maestría con cimitarras y espadas largas.
+
 **NIVEL 2: ESTILO DE COMBATE**
 Eliges un estilo de combate (Arququería, Defensa, Duelo, Combate con dos armas).
 
 **NIVEL 3: SUBCLASE DE EXPLORADOR**
 Eliges un Conclave de Explorador (Cazador, Bestias, Acechador en la Penumbra, Errante Feérico).
 
+**NIVEL 4: MEJORA DE CARACTERÍSTICA**
+Obtienes la dote Mejora de característica (consulta el capítulo 5) u otra dote de tu elección para la que cumplas las condiciones. Vuelves a obtener este rasgo en los niveles 8, 12 y 16 de explorador.
+
 **NIVEL 5: ATAQUE ADICIONAL**
 Puedes atacar dos veces, en lugar de una, siempre que realices la acción de Atacar en tu turno.
 
 **NIVEL 6: ERRANTE (ROVING)**
 Tu velocidad caminando aumenta en 3 m. Ganas velocidad de escalada y natación igual a tu velocidad caminando.
+
+**NIVEL 9: PERICIA**
+Escoge dos de tus competencias en habilidades con las que no tengas pericia. Ganas pericia en esas habilidades.
+
+**NIVEL 10: INFATIGABLE**
+Las fuerzas primigenias te ayudan ahora en tus viajes, lo que te otorga los siguientes beneficios. 
+Puntos de golpe temporales. Como acción de magia, puedes concederte una cantidad de puntos de golpe temporales igual a 148 más tu modificador por Sabiduría (mínimo de 1). Puedes usar esta acción una cantidad de veces igual a tu modificador por Sabiduría (mínimo una vez) y recuperas todos los usos tras finalizar un descanso largo. Disminuir cansancio. Tras finalizar un descanso corto, tu nivel de cansancio, si lo tienes, se reduce en 1. 
+
+**NIVEL 13: CAZADOR PERSISTENTE**
+Sufrir daño no rompe tu concentración de marca del cazador. 
+
+**NIVEL 14: VELO DE LA NATURALEZA**
+Invocas espíritus de la naturaleza para esconderte mágicamente. Como acción adicional, puedes otorgarte el estado de invisible hasta el final de tu siguiente turno. Puedes usar este rasgo una cantidad de veces igual a tu modificador por Sabiduría (mínimo una vez) y recuperas todos los usos tras finalizar un descanso largo. 
+
+**NIVEL 17: CAZADOR PRECISO**
+Tienes ventaja en las tiradas de ataque contra la criatura que tenga tu marca del cazador sobre ella. 
+
+**NIVEL 18: SENTIDOS SALVAJES**
+Tu conexión con las fuerzas de la naturaleza te otorga visión ciega hasta 9 m. 
+
+**NIVEL 19: Don ÉPICO**
+Obtienes una dote de don épico (consulta el capítulo 5) u otra dote de tu elección para la que cumplas las condiciones. Se recomienda Don del viaje dimensional. 
+
+**NIVEL 20: AZOTE DE ENEMIGOS**
+El dado de daño de tu marca del cazador es un d10 en lugar de un d6. 
 """,
 
     "Pícaro": """# PÍCARO (ROGUE)
@@ -307,17 +509,56 @@ Una vez por turno, puedes infligir 1d6 de daño adicional a una criatura a la qu
 **NIVEL 1: JERGA DE LADRONES**
 Durante tu entrenamiento aprendiste la jerga de ladrones, una mezcla de dialecto, argot y código secreto.
 
+**NIVEL 1: MAESTRÍA CON ARMAS**
+Tu entrenamiento con armas te permite utilizar las propiedades de maestría con dos tipos de armas de tuelección con las que tengas competencia, como dagas y arcos cortos. 
+Tras finalizar un descanso largo, puedes cambiar los tipos de armas elegidas. Por ejemplo, podrías pasar a utilizar las propiedades de maestría con cimitarras y espadas cortas. 
+
 **NIVEL 2: ACCIÓN ASTUTA**
 Tu rapidez mental y agilidad te permiten moverte y actuar rápidamente. Puedes realizar una acción adicional en cada uno de tus turnos de combate. Esta acción solo puede usarse para: Correr, Destrabarse o Esconderse.
 
 **NIVEL 3: SUBCLASE DE PÍCARO**
 Eliges un Arquetipo de Pícaro (Ladrón, Asesino, Embaucador Arcano, Soulknife).
 
+**NIVEL 4: MEJORA DE CARACTERÍSTICA**
+Obtienes la dote Mejora de característica (consulta el capítulo 5) u otra dote de tu elección para la que cumplas las condiciones. Vuelves a obtener este rasgo en los niveles 8, 10, 12 y 16 de pícaro.
+
 **NIVEL 5: ESQUIVA ASOMBROSA**
 Cuando un atacante que puedes ver te golpea con un ataque, puedes usar tu reacción para reducir a la mitad el daño del ataque contra ti.
 
+**NIVEL 5: GOLPE ASTUTO**
+Has desarrollado formas astutas de usar tu Ataque furtivo. 
+Cuando infliges daño de Ataque furtivo, puedes añadir uno de los siguientes efectos de Golpe astuto. Cada unotiene un coste en dados que es la cantidad de dados de daño de Ataque furtivo a los que debes renunciar para añadir el efecto. Retiras la cantidad de dados antes de tirar y el efecto se produce inmediatamente después de que se cause el daño del ataque. Por ejemplo, si añades el efecto de veneno, quita 1d6 del daño de Ataque furtivo antes de tirar. 
+Si un efecto de Golpe astuto requiere una tirada de salvación, la CD es igual a 8 más tu modificador por Destreza y tu bonificador por competencia. 
+Retirada (coste: 1d6). Justo después del ataque, te mueves hasta la mitad de tu velocidad sin provocar ataques de oportunidad. 
+Tropiezo (coste: 1d6). Si el objetivo es Grande o más pequeño, deberá superar una tirada de salvación de Destreza o tendrá el estado de derribado. 
+Veneno (coste: 146). Añades una toxina a tu golpe, lo que obliga al objetivo a hacer una tirada de salvación de Constitución. Si la falla, tendrá el estado de envenenado durante 1 minuto. Al final de cada uno de sus turnos, el objetivo envenenado repetirá la tirada de salvación y, si tiene éxito, se librará del efecto. Para usar este efecto, debes llevar contigo unos útiles de envenenador. 
+
 **NIVEL 7: EVASIÓN**
 Cuando estás sometido a un efecto que te permite hacer una tirada de salvación de Destreza para recibir solo la mitad de daño, no recibes daño si tienes éxito y solo la mitad si fallas.
+
+**NIVEL 7: TALENTOS FIABLES**
+Cuando hagas una prueba de característica que utilice una de tus competencias en habilidades o con herramientas, puedes sustituir un resultado de 9 o menos en el d20 por un 10.
+
+**NIVEL 11: GOLPE ASTUTO MEJORADO**
+Puedes usar hasta dos efectos de Golpe astuto cuando inflijas daño de Ataque furtivo pagando el coste en dados por cada efecto. 
+
+**NIVEL 14: GOLPES TAIMADOS**
+Has practicado nuevas formas de usar tu Ataque furtivo de forma artera. Entre las opciones de Golpe astuto se encuentran ahora los siguientes efectos. 
+Confundir (coste: 2d6). El objetivo deberá superar una tirada de salvación de Constitución. Si no lo hace, en su próximo turno solo podrá moverse, realizar una acción o realizar una acción adicional. 
+Noquear (coste: 6d6). El objetivo deberá superar una tirada de salvación de Constitución o tendrá el estado de inconsciente durante 1 minuto o hasta recibir daño. El objetivo inconsciente repetirá la tirada de salvación al final de cada uno de sus turnos y, si tiene éxito, se librará del efecto. 
+Ofuscar (coste: 3d6). El objetivo deberá superar una tirada de salvación de Destreza o tendrá el estado de cegado hasta el final de su siguiente turno. 
+
+**NIVEL 15: MENTE ESCURRIDIZA**
+Tu mente astuta es excepcionalmente difícil de controlar. Ganas competencia en las tiradas de salvación de Sabiduría y Carisma. 
+
+**NIVEL 18: ELUSIVO** 
+Eres tan escurridizo que será raro que un atacante pueda golpearte con facilidad. Ninguna tirada de ataque contra ti tendrá ventaja a menos que tengas el estado de incapacitado. 
+
+**NIVEL 19: Don ÉPICO**
+Obtienes una dote de don épico (consulta el capítulo 5) u otra dote de tu elección para la que cumplas las condiciones. Se recomienda Don del espíritu de la noche. 
+
+**NIVEL 20: GOLPE DE SUERTE**
+Has desarrollado una capacidad asombrosa para tener éxito justo cuando lo necesitas. Si fallas una prueba con d20, puedes convertir el resultado de la tirada en un 20. Cuando uses este rasgo, no podrás volver a hacerlo hasta que finalices un descanso corto o largo.
 """,
 
     "Hechicero": """# HECHICERO (SORCERER)
@@ -342,8 +583,22 @@ Obtienes la capacidad de alterar tus conjuros. Eliges 2 opciones de Metamagia (e
 **NIVEL 3: SUBCLASE DE HECHICERO**
 Eliges un Origen Hechicero (Dracónico, Magia Salvaje, Aberrante, Mecánico).
 
+**NIVEL 4: MEJORA DE CARACTERÍSTICA**
+Obtienes la dote Mejora de característica (consulta el capítulo 5) u otra dote de tu elección para la que cumplas las condiciones. Vuelves a obtener este rasgo en los niveles 8, 12 y 16 de hechicero. 
+
 **NIVEL 5: RESPUESTA HECHICERA**
 Cuando fallas una tirada de salvación, puedes gastar puntos de hechicería para volver a tirar.
+
+
+**NIVEL 7: ENCARNACIÓN MÁGICA*
+Si no te quedan usos del rasgo Hechicería innata, puedes usarlo si gastas 2 puntos de hechicería cuando empleas la acción adicional para activarlo. 
+Además, mientras tengas activo el rasgo Hechicería innata, puedes usar hasta dos de tus opciones de metamagia en cada conjuro que lances. 
+
+**NIVEL 19: DON ÉPICO**
+Obtienes una dote de don épico (consulta el capítulo 5) u otra dote de tu elección para la que cumplas las condiciones. Se recomienda Don del viaje dimensional. 
+
+**NIVEL 20: APOTEOSIS ARCANA**
+Mientras tengas activo el rasgo Hechicería innata, puedes usar una opción de metamagia en cada uno de tus turnos sin gastar puntos de hechicería. 
 """,
 
     "Brujo (Warlock)": """# BRUJO (WARLOCK)
@@ -369,6 +624,25 @@ Eliges un Patrón de Otro Mundo (Archifey, Celestial, Infernal, Gran Antiguo).
 
 **NIVEL 3: PACTO DEL BOON**
 Eliges un don de tu patrón (Pacto de la Hoja, Pacto de la Cadena, Pacto del Tomo).
+
+**NIVEL 4: MEJORA DE CARACTERÍSTICA** 
+Obtienes la dote Mejora de característica (consulta el capítulo 5) u otra dote de tu elección para la que cumplas las condiciones. Vuelves a obtener este rasgo en los niveles 8, 12 y 16 de brujo. 
+
+**NIVEL 9: CONTACTAR PATRÓN 
+Antes solías ponerte en contacto con tu patrón a través de intermediarios. Ahora puedes comunicarte directamente, ya que siempre tienes el conjuro contactar con otro plano preparado. Con este rasgo, puedes lanzar el conjuro sin gastar un espacio de conjuro para contactar con tu patrón y superas automáticamente la tirada de salvación del conjuro. 
+Cuando lances el conjuro con este rasgo, no podrás volver a hacerlo de esta forma hasta que finalices un descanso largo. 
+
+**NIVEL 11: ARCANUM MÍSTICO 
+Tu patrón te recompensa con un secreto mágico denominado arcanum. Escoge uno de los conjuros de brujo de nivel 6 como este arcanum. 
+Puedes lanzar tu conjuro de arcanum una vez sin gastar un espacio de conjuro y debes finalizar un descanso largo antes de poder volver a lanzarlo de este modo. 
+Obtendrás más conjuros de brujo de tu elección que podrás lanzar de esta forma cuando alcances los niveles 13 (conjuro de nivel 7), 15 (conjuro de nivel 8) y 17 (conjuro de nivel 9) de brujo, como se muestra en la tabla “Rasgos de brujo”. Recuperas todos los usos de tu Arcanum místico tras finalizar un descanso largo. 
+Siempre que subas un nivel de brujo, puedes sustituir uno de tus conjuros de arcanum por otro conjuro de brujo del mismo nivel. 
+
+**NivEL 19: DON ÉPICO 
+Obtienes una dote de don épico (consulta el capítulo 5) u otra dote de tu elección para la que cumplas las condiciones. Se recomienda Don del destino. 
+
+**NIVEL 20: MAESTRO SOBRENATURAL 
+Cuando empleas tu rasgo Astucia mágica, recuperas todos los espacios de conjuro utilizados de Magia del pacto. 
 """,
 
     "Mago": """# MAGO (WIZARD)
@@ -390,11 +664,26 @@ Puedes copiar cualquier conjuro de ritual que encuentres en tu libro de conjuros
 **NIVEL 2: ERUDITO**
 Ganas pericia en una de tus habilidades académicas (Arcanos, Historia, Naturaleza, Religión).
 
+**NIVEL 2: ACADÉMICO**
+Mientras estudiabas magia, también te especializaste en otro campo. Elige una de las siguientes habilidades en la que tengas competencia: Conocimiento arcano, Historia, Investigación, Medicina, Naturaleza o Religión. Ganas pericia en la habilidad elegida. 
+
 **NIVEL 3: SUBCLASE DE MAGO**
 Eliges una Tradición Arcana (Abjuración, Adivinación, Evocación, Ilusión).
 
+**NIVEL 4: MEJORA DE CARACTERÍSTICA**
+Obtienes la dote Mejora de característica (consulta el capítulo 5) u otra dote de tu elección para la que cumplas las condiciones. Vuelves a obtener este rasgo en los niveles 8, 12 y 16 de mago.
+
 **NIVEL 5: MEMORIZAR CONJURO**
 Puedes cambiar un conjuro preparado por otro de tu libro tras 1 minuto de estudio.
+
+**NIVEL 18: MAESTRÍA SOBRE CONJUROS**
+Has alcanzado tal maestría sobre ciertos conjuros que puedes lanzarlos a voluntad. Elige un conjuro de nivel 1 y otro de nivel 2 de tu libro de conjuros con un tiempo de lanzamiento de una acción. Siempre tienes esos conjuros preparados y puedes lanzarlos a su nivel más bajo sin gastar un espacio de conjuro. Para lanzar cualquiera de ellos a un nivel superior, deberás gastar un espacio de conjuro. Tras finalizar un descanso largo, puedes estudiar tu libro de conjuros y sustituir uno de los conjuros por otro del libro del mismo nivel que cumpla los requisitos.
+
+**NiveL 19: Don ÉPICO**
+Obtienes una dote de don épico (consulta el capítulo 5) u otra dote de tu elección para la que cumplas las condiciones. Se recomienda Don del recuerdo de conjuros. 
+
+**NIvEL 20: CONJUROS CARACTERÍSTICOS**
+Escoge dos conjuros de nivel 3 que figuren en tu libro de conjuros como conjuros característicos. Siempre tienes esos conjuros preparados y puedes lanzar cada uno de ellos una vez a nivel 3 sin gastar un espacio de conjuro. Una vez que los lances, no podrás volver a hacerlo de este modo hasta que finalices un descanso corto o largo. Para lanzar cualquiera de ellos a un nivel superior, deberás gastar un espacio de conjuro. 
 """,
 
     "OTRA (Manual)": """# CLASE PERSONALIZADA
@@ -838,3 +1127,4 @@ def main(page: ft.Page):
     recargar_interfaz()
 
 ft.app(target=main)
+
