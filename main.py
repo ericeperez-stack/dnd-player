@@ -1195,15 +1195,16 @@ def main(page: ft.Page):
         content=ft.Row([ft.Icon("person"), dd_personajes, ft.IconButton("add", on_click=nuevo_pj)], alignment="center")
     )
 
-    # --- PESTAÑA 1: GENERAL (CORREGIDA) ---
-    # Usamos padding horizontal para evitar el crash por altura en móviles
+    # --- PESTAÑA 1: GENERAL (MODO SEGURO) ---
+    # Eliminamos el height=40 forzado para evitar crashes en móviles con fuentes grandes.
+    # Usamos dense=True para mantenerlo compacto de forma natural.
     padding_compact = ft.padding.symmetric(horizontal=10)
 
     dd_raza = ft.Dropdown(
         label="Raza",
         options=[ft.dropdown.Option(x) for x in LISTA_RAZAS],
         expand=True,
-        height=40,
+        # height=40,  <-- ELIMINADO PARA SEGURIDAD
         text_size=12,
         content_padding=padding_compact,
         dense=True,
@@ -1214,9 +1215,10 @@ def main(page: ft.Page):
         label="Otra Raza", 
         visible=False, 
         expand=True, 
-        height=40, 
+        # height=40, <-- ELIMINADO PARA SEGURIDAD
         text_size=12, 
         content_padding=padding_compact, 
+        dense=True,
         on_change=lambda e: update_gen("custom_raza", e.control.value)
     )
 
@@ -1224,7 +1226,7 @@ def main(page: ft.Page):
         label="Clase",
         options=[ft.dropdown.Option(x) for x in LISTA_CLASES],
         expand=True,
-        height=40,
+        # height=40, <-- ELIMINADO PARA SEGURIDAD
         text_size=12,
         content_padding=padding_compact,
         dense=True,
@@ -1234,13 +1236,14 @@ def main(page: ft.Page):
     txt_nivel = ft.TextField(
         label="Nivel", 
         width=60, 
-        height=40, 
+        # height=40, <-- ELIMINADO PARA SEGURIDAD
         text_size=12,
         content_padding=padding_compact, 
+        dense=True,
         on_change=lambda e: update_gen("nivel", e.control.value)
     )
 
-    txt_clase_c = ft.TextField(label="Otra Clase", visible=False, expand=True, height=40, content_padding=padding_compact, text_size=12, on_change=lambda e: update_gen("custom_clase", e.control.value))
+    txt_clase_c = ft.TextField(label="Otra Clase", visible=False, expand=True, dense=True, content_padding=padding_compact, text_size=12, on_change=lambda e: update_gen("custom_clase", e.control.value))
     txt_hit_dice = ft.Text("?", size=20, weight="bold", color="yellow")
 
     def update_hit_dice_display():
