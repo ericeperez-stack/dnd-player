@@ -13,7 +13,7 @@ DADOS_GOLPE = {
 
 # --- INFORMACIÓN TEXTUAL DE CLASES ---
 DATA_CLASES_INFO = {
-   "Bárbaro": """# BÁRBARO
+    "Bárbaro": """# BÁRBARO
 **Dado de Golpe:** 1d12 por nivel de bárbaro.
 **Competencias:** Armaduras ligeras, medias y escudos. Armas sencillas y marciales.
 **Salvaciones:** Fuerza, Constitución.
@@ -458,9 +458,8 @@ DATA_DOTES_FULL = {
 }
 
 def main(page: ft.Page):
-    page.title = "D&D Player App v16 Fix"
+    page.title = "D&D Player App v17 Final"
     page.theme_mode = ft.ThemeMode.DARK
-    # padding 0 para que el SafeArea controle los bordes
     page.padding = 0 
 
     # --- ESTADO Y DATOS ---
@@ -483,9 +482,8 @@ def main(page: ft.Page):
             "kits_tools": []
         }
 
-    all_chars = page.client_storage.get("dnd_chars_v16") or {"Default": get_empty_char()}
+    all_chars = page.client_storage.get("dnd_chars_v17") or {"Default": get_empty_char()}
     
-    # Migración simple
     for d in all_chars.values():
         if "dotes_list" not in d: d["dotes_list"] = [] 
         if "kits_tools" not in d: d["kits_tools"] = []
@@ -495,7 +493,7 @@ def main(page: ft.Page):
 
     def guardar():
         all_chars[current_char_name] = char_data
-        page.client_storage.set("dnd_chars_v16", all_chars)
+        page.client_storage.set("dnd_chars_v17", all_chars)
 
     # --- HEADER ---
     dd_personajes = ft.Dropdown(options=[ft.dropdown.Option(k) for k in all_chars.keys()], value=current_char_name, expand=True)
@@ -510,7 +508,7 @@ def main(page: ft.Page):
         def crear(e):
             if txt_new.value and txt_new.value not in all_chars:
                 all_chars[txt_new.value] = get_empty_char()
-                page.client_storage.set("dnd_chars_v16", all_chars)
+                page.client_storage.set("dnd_chars_v17", all_chars)
                 nonlocal current_char_name, char_data
                 current_char_name = txt_new.value
                 char_data = all_chars[current_char_name]
@@ -527,7 +525,7 @@ def main(page: ft.Page):
         content=ft.Row([ft.Icon("person"), dd_personajes, ft.IconButton("add", on_click=nuevo_pj)], alignment="center")
     )
 
-    # --- PESTAÑA 1: GENERAL (LISTVIEW PARA EVITAR PANTALLA NEGRA) ---
+    # --- PESTAÑA 1: GENERAL ---
     dd_raza = ft.Dropdown(label="Raza", options=[ft.dropdown.Option(x) for x in LISTA_RAZAS], expand=True, on_change=lambda e: update_gen("raza", e.control.value))
     txt_raza_c = ft.TextField(label="Otra Raza", visible=False, expand=True, on_change=lambda e: update_gen("custom_raza", e.control.value))
     dd_clase = ft.Dropdown(label="Clase", options=[ft.dropdown.Option(x) for x in LISTA_CLASES], expand=True, on_change=lambda e: update_gen("clase", e.control.value))
@@ -602,7 +600,6 @@ def main(page: ft.Page):
             ])))
         page.update()
 
-    # CORRECCIÓN PANTALLA NEGRA: Usamos ListView en lugar de Contenedores anidados complejos
     tab_general = ft.ListView([
         ft.Text("Datos", weight="bold"), 
         ft.Row([dd_raza, dd_clase]), 
@@ -615,7 +612,7 @@ def main(page: ft.Page):
         col_dotes_active
     ], padding=10, expand=True)
 
-    # --- PESTAÑA: INFO DE CLASE ---
+    # --- PESTAÑA: INFO DE CLASE (CORREGIDO SCROLL) ---
     dd_info_clase = ft.Dropdown(options=[ft.dropdown.Option(c) for c in LISTA_CLASES if c != "OTRA (Manual)"], label="Ver Info Clase", expand=True)
     md_clase_info = ft.Markdown(value="Selecciona arriba.", selectable=True)
     
@@ -624,11 +621,19 @@ def main(page: ft.Page):
         page.update()
     dd_info_clase.on_change = change_info_clase
 
-    # CORRECCIÓN: Column con scroll=auto dentro del Tab
-    tab_clase_info = ft.Container(padding=10, content=ft.Column([
-        dd_info_clase, ft.Divider(),
-        ft.Container(content=ft.Column([md_clase_info], scroll="auto", expand=True), expand=True)
-    ], expand=True))
+    # SOLUCIÓN DEL SCROLL: Usar ListView con expand=True
+    tab_clase_info = ft.Container(
+        padding=10, 
+        content=ft.Column([
+            dd_info_clase, 
+            ft.Divider(),
+            ft.ListView(
+                controls=[md_clase_info], 
+                expand=True, 
+                spacing=10
+            )
+        ], expand=True)
+    )
 
     # --- PESTAÑA 3: COMBATE ---
     txt_ac = ft.TextField(value="10", width=40, text_align="center", on_change=lambda e: update_combat("ac", e.control.value))
@@ -734,7 +739,6 @@ def main(page: ft.Page):
             col_spells.controls.append(crear_fila_recurso(f"Nv {n}", char_data["spells_config"].get(k, 0), on_max, char_data["spells_used"][k], on_click))
         page.update()
 
-    # CORRECCIÓN: ListView para scroll
     tab_magia = ft.ListView([
         ft.Text("Recursos de Clase / Extras", weight="bold", color="cyan"), col_extras,
         ft.Divider(), ft.Text("Slots de Conjuro", weight="bold"), col_spells
@@ -751,7 +755,7 @@ def main(page: ft.Page):
     ], alignment="center"))
 
     def crear_tab_inv_manual(key_db, titulo):
-        col_items = ft.ListView(expand=True, spacing=5) # LISTVIEW CLAVE
+        col_items = ft.ListView(expand=True, spacing=5)
         txt_item = ft.TextField(label="Nombre", expand=True, height=40)
         txt_desc = ft.TextField(label="Desc", expand=True, height=40)
         
@@ -769,13 +773,12 @@ def main(page: ft.Page):
                 char_data[key_db].append({"n": txt_item.value, "d": txt_desc.value}); txt_item.value=""; txt_desc.value=""; guardar(); render_items()
         
         render_items()
-        # Estructura corregida: Inputs fijos + Lista expandible
         return ft.Tab(text=titulo, content=ft.Container(padding=10, content=ft.Column([
             ft.Column([txt_item, txt_desc, ft.ElevatedButton("Añadir", on_click=add_item)]),
             ft.Divider(), col_items
         ], expand=True)))
 
-    col_kits = ft.ListView(expand=True, spacing=5) # LISTVIEW CLAVE
+    col_kits = ft.ListView(expand=True, spacing=5)
     def build_kits():
         col_kits.controls.clear()
         col_kits.controls.append(ft.Text("Kits", weight="bold", color="cyan"))
@@ -835,4 +838,3 @@ def main(page: ft.Page):
     recargar_interfaz()
 
 ft.app(target=main)
-
