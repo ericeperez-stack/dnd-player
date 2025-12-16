@@ -1197,19 +1197,18 @@ def main(page: ft.Page):
         content=ft.Row([ft.Icon("person"), dd_personajes, ft.IconButton("add", on_click=nuevo_pj)], alignment="center")
     )
 
-    # --- PESTAÑA 1: GENERAL ---
-# --- CAMBIO 2: CONTROLES COMPACTOS (MOBILE FRIENDLY) ---
-    # height=40 y content_padding reducen la altura del botón.
-    # text_size=12 hace que el texto quepa mejor sin romperse.
+# --- PESTAÑA 1: GENERAL (CORREGIDA) ---
+    # Ajuste: Usamos padding solo horizontal para evitar crash por altura en móviles
+    padding_compact = ft.padding.symmetric(horizontal=10)
     
     dd_raza = ft.Dropdown(
         label="Raza",
         options=[ft.dropdown.Option(x) for x in LISTA_RAZAS],
         expand=True,
-        height=40,             # Altura compacta ideal para móvil
-        text_size=12,          # Texto ajustado
-        content_padding=10,    # Menos margen interno
-        dense=True,            # Intenta compactar visualmente (estilo Material)
+        height=40,
+        text_size=12,
+        content_padding=padding_compact, # Corrección aquí
+        dense=True,
         on_change=lambda e: update_gen("raza", e.control.value)
     )
 
@@ -1217,9 +1216,9 @@ def main(page: ft.Page):
         label="Otra Raza", 
         visible=False, 
         expand=True, 
-        height=40,             # Misma altura que el dropdown
+        height=40, 
         text_size=12, 
-        content_padding=10, 
+        content_padding=padding_compact, # Corrección aquí
         on_change=lambda e: update_gen("custom_raza", e.control.value)
     )
 
@@ -1227,23 +1226,24 @@ def main(page: ft.Page):
         label="Clase",
         options=[ft.dropdown.Option(x) for x in LISTA_CLASES],
         expand=True,
-        height=40,             # Altura compacta
+        height=40,
         text_size=12,
-        content_padding=10,
+        content_padding=padding_compact, # Corrección aquí
         dense=True,
         on_change=lambda e: update_gen("clase", e.control.value)
     )
     
-    # IMPORTANTE: También ajusta el campo de Nivel para que coincida en altura
     txt_nivel = ft.TextField(
         label="Nivel", 
         width=60, 
-        height=40,             # Altura coincidente
+        height=40, 
         text_size=12,
-        content_padding=10,
+        content_padding=padding_compact, # Corrección aquí
         on_change=lambda e: update_gen("nivel", e.control.value)
     )
-    txt_clase_c = ft.TextField(label="Otra Clase", visible=False, expand=True, on_change=lambda e: update_gen("custom_clase", e.control.value))
+    
+    # El resto de elementos de esta pestaña
+    txt_clase_c = ft.TextField(label="Otra Clase", visible=False, expand=True, height=40, content_padding=padding_compact, text_size=12, on_change=lambda e: update_gen("custom_clase", e.control.value))
     txt_hit_dice = ft.Text("?", size=20, weight="bold", color="yellow")
 
     def update_hit_dice_display():
@@ -1313,17 +1313,21 @@ def main(page: ft.Page):
             ])))
         page.update()
 
-    tab_general = ft.ListView([
-        ft.Text("Datos", weight="bold"), 
-        ft.Row([dd_raza, dd_clase]), 
-        ft.Row([txt_nivel, ft.Text("Dado de Golpe:", color="grey"), txt_hit_dice]), 
-        ft.Row([txt_raza_c, txt_clase_c]),
-        ft.Divider(), ft.Text("Stats", weight="bold"), col_stats,
-        ft.Divider(), 
-        ft.Text("Dotes (Feats)", weight="bold"), 
-        ft.Row([dd_dotes_select, ft.IconButton("add_circle", icon_color="green", on_click=add_dote_click)]),
-        col_dotes_active
-    ], padding=10, expand=True)
+# Asegúrate de que tab_general tenga expand=True en el ListView
+    tab_general = ft.Container(
+        content=ft.ListView([
+            ft.Text("Datos", weight="bold"), 
+            ft.Row([dd_raza, dd_clase]), 
+            ft.Row([txt_nivel, ft.Text("Dado de Golpe:", color="grey"), txt_hit_dice]), 
+            ft.Row([txt_raza_c, txt_clase_c]),
+            ft.Divider(), ft.Text("Stats", weight="bold"), col_stats,
+            ft.Divider(), 
+            ft.Text("Dotes (Feats)", weight="bold"), 
+            ft.Row([dd_dotes_select, ft.IconButton("add_circle", icon_color="green", on_click=add_dote_click)]),
+            col_dotes_active
+        ], padding=10, spacing=10),
+        expand=True
+    )
 
     # --- PESTAÑA: INFO DE CLASE (CORREGIDO SCROLL) ---
     dd_info_clase = ft.Dropdown(options=[ft.dropdown.Option(c) for c in LISTA_CLASES if c != "OTRA (Manual)"], label="Ver Info Clase", expand=True)
@@ -1335,20 +1339,26 @@ def main(page: ft.Page):
     dd_info_clase.on_change = change_info_clase
 
 # --- CAMBIO 1: ÁREA DE TEXTO EXPANDIBLE ---
-    # Usamos un contenedor que se expande para llenar todo el alto del móvil.
-    # El scroll=ft.ScrollMode.AUTO asegura que si el texto es largo, puedas bajar.
+# --- PESTAÑA 2: INFO CLASE (CORREGIDA) ---
     tab_clase_info = ft.Container(
         padding=10,
         content=ft.Column([
             dd_info_clase, 
             ft.Divider(),
+            # Contenedor para el texto markdown
             ft.Container(
-                content=ft.Column([md_clase_info], scroll=ft.ScrollMode.AUTO),
-                expand=True,  # <--- ESTO ES LA CLAVE: Llena todo el espacio vertical sobrante
+                # Envolvemos el Markdown en un Column scrollable
+                content=ft.Column(
+                    [md_clase_info], 
+                    scroll=ft.ScrollMode.AUTO, 
+                    expand=True
+                ),
+                expand=True, 
                 border_radius=5,
-                padding=5
+                padding=5,
+                border=ft.border.all(1, "grey900")
             )
-        ], expand=True) # El Column padre también debe expandirse
+        ], expand=True)
     )
 
     # --- PESTAÑA 3: COMBATE ---
@@ -1548,12 +1558,27 @@ def main(page: ft.Page):
         ft.Tab(text="Mochila", icon="backpack", content=container_mochila),
     ], expand=True)
 
-    # --- ESTRUCTURA PRINCIPAL SIN SAFE AREA WRAPPER COMPLEJO (SOLUCIÓN PANTALLA NEGRA) ---
-    # Añadimos SafeArea solo al contenedor principal
-    page.add(ft.SafeArea(ft.Column([header, ft.Divider(height=1), main_tabs], expand=True), expand=True))
+# --- ESTRUCTURA PRINCIPAL SEGURA (CORRECCIÓN 4) ---
+    # Creamos el layout primero para asegurar que se expanda bien antes de pintarlo
+    layout_principal = ft.Column(
+        controls=[
+            header, 
+            ft.Divider(height=1), 
+            main_tabs
+        ], 
+        expand=True,
+        spacing=0
+    )
+
+    # Agregamos el SafeArea envolviendo el layout
+    page.add(ft.SafeArea(layout_principal, expand=True))
+    
+    # Cargamos los datos iniciales
     recargar_interfaz()
 
+# Fuera de la función main (esta línea no se toca, pero debe quedar al final)
 ft.app(target=main)
+
 
 
 
