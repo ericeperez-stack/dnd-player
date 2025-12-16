@@ -1196,14 +1196,13 @@ def main(page: ft.Page):
     )
 
     # --- PESTAÑA 1: GENERAL (OPTIMIZADA) ---
-    # Corrección de tamaño: Quitamos expand=True y usamos width fijo (170) para limitar tamaño horizontal.
-    # dense=True mantiene la altura compacta.
+    AnchoDropdown = 200
     padding_compact = ft.padding.symmetric(horizontal=10)
 
     dd_raza = ft.Dropdown(
         label="Raza",
         options=[ft.dropdown.Option(x) for x in LISTA_RAZAS],
-        width=170, # Tamaño limitado
+        width=AnchoDropdown, 
         text_size=12,
         content_padding=padding_compact,
         dense=True,
@@ -1213,7 +1212,7 @@ def main(page: ft.Page):
     txt_raza_c = ft.TextField(
         label="Otra Raza", 
         visible=False, 
-        width=170, # Tamaño limitado
+        width=AnchoDropdown,
         text_size=12, 
         content_padding=padding_compact, 
         dense=True,
@@ -1223,7 +1222,7 @@ def main(page: ft.Page):
     dd_clase = ft.Dropdown(
         label="Clase",
         options=[ft.dropdown.Option(x) for x in LISTA_CLASES],
-        width=170, # Tamaño limitado
+        width=AnchoDropdown,
         text_size=12,
         content_padding=padding_compact,
         dense=True,
@@ -1236,10 +1235,11 @@ def main(page: ft.Page):
         text_size=12,
         content_padding=padding_compact, 
         dense=True,
+        keyboard_type="NUMBER",
         on_change=lambda e: update_gen("nivel", e.control.value)
     )
 
-    txt_clase_c = ft.TextField(label="Otra Clase", visible=False, width=170, dense=True, content_padding=padding_compact, text_size=12, on_change=lambda e: update_gen("custom_clase", e.control.value))
+    txt_clase_c = ft.TextField(label="Otra Clase", visible=False, width=AnchoDropdown, dense=True, content_padding=padding_compact, text_size=12, on_change=lambda e: update_gen("custom_clase", e.control.value))
     txt_hit_dice = ft.Text("?", size=20, weight="bold", color="yellow")
 
     def update_hit_dice_display():
@@ -1279,10 +1279,16 @@ def main(page: ft.Page):
         except: pass
 
     col_dotes_active = ft.Column()
+    
+    # --- CORRECCIÓN EN DOTES (ANCHO FIJO) ---
     dd_dotes_select = ft.Dropdown(
         label="Buscar Dote...",
         options=[ft.dropdown.Option(text=k, key=k) for k in sorted(DATA_DOTES_FULL.keys())],
-        expand=True, enable_filter=True
+        width=230, # ANCHO FIJO PARA EVITAR QUE TAPE LA PANTALLA
+        text_size=12,
+        content_padding=padding_compact,
+        dense=True,
+        enable_filter=True
     )
 
     def add_dote_click(e):
@@ -1311,22 +1317,23 @@ def main(page: ft.Page):
 
     tab_general = ft.Container(
         content=ft.ListView([
-            ft.Text("Datos", weight="bold"), 
-            # Row centrada para que no se estiren
-            ft.Row([dd_raza, dd_clase], alignment=ft.MainAxisAlignment.CENTER), 
-            ft.Row([txt_nivel, ft.Text("Dado de Golpe:", color="grey"), txt_hit_dice], alignment=ft.MainAxisAlignment.CENTER), 
-            ft.Row([txt_raza_c, txt_clase_c], alignment=ft.MainAxisAlignment.CENTER),
-            ft.Divider(), ft.Text("Stats", weight="bold"), col_stats,
+            ft.Text("Datos Básicos", weight="bold", size=16), 
+            ft.Row([dd_raza, dd_clase], alignment=ft.MainAxisAlignment.CENTER, spacing=15), 
+            ft.Row([txt_raza_c, txt_clase_c], alignment=ft.MainAxisAlignment.CENTER, spacing=15),
+            ft.Row([txt_nivel, ft.Row([ft.Text("Dado de Golpe:", color="grey"), txt_hit_dice])], alignment=ft.MainAxisAlignment.SPACE_EVENLY, vertical_alignment=ft.CrossAxisAlignment.CENTER),
             ft.Divider(), 
-            ft.Text("Dotes (Feats)", weight="bold"), 
-            ft.Row([dd_dotes_select, ft.IconButton("add_circle", icon_color="green", on_click=add_dote_click)]),
+            ft.Text("Características (Stats)", weight="bold", size=16), 
+            col_stats,
+            ft.Divider(), 
+            ft.Text("Dotes (Feats)", weight="bold", size=16), 
+            # Fila centrada para dotes
+            ft.Row([dd_dotes_select, ft.IconButton("add_circle", icon_color="green", on_click=add_dote_click)], alignment=ft.MainAxisAlignment.CENTER),
             col_dotes_active
-        ], padding=10, spacing=10),
+        ], padding=15, spacing=15),
         expand=True
     )
 
     # --- PESTAÑA 2: INFO DE CLASE (OPTIMIZADA) ---
-    # Tamaño limitado para la lista (width=200) y espacio maximizado para el texto.
     dd_info_clase = ft.Dropdown(options=[ft.dropdown.Option(c) for c in LISTA_CLASES if c != "OTRA (Manual)"], label="Ver Info Clase", width=200, dense=True)
     md_clase_info = ft.Markdown(value="Selecciona arriba.", selectable=True)
     
@@ -1336,11 +1343,10 @@ def main(page: ft.Page):
     dd_info_clase.on_change = change_info_clase
 
     tab_clase_info = ft.Container(
-        padding=5, # Menos padding para más espacio de texto
+        padding=5,
         content=ft.Column([
             ft.Row([dd_info_clase], alignment=ft.MainAxisAlignment.CENTER), 
             ft.Divider(height=1),
-            # Contenedor maximizado
             ft.Container(
                 content=ft.Column([md_clase_info], scroll=ft.ScrollMode.AUTO, expand=True),
                 expand=True, 
